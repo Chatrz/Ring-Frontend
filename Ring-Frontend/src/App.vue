@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+      <router-view />
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
 <style>
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "../node_modules/bootstrap/dist/js/bootstrap.min.css";
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -24,3 +23,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+Login
