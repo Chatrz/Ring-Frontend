@@ -40,6 +40,7 @@
 
 <script>
 export default {
+  name: "Register",
   data() {
     return {
       name: "",
@@ -48,6 +49,6 @@ export default {
       password_confirmation: "",
       is_admin: null,
     };
-  }
+  },
 };
 </script>
