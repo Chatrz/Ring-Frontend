@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    {{ "This is " + name + " page" }}
+  </div>
 </template>
 
 <script>
@@ -8,6 +10,11 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    name() {
+      return "Market";
+    }
+  }
 };
 </script>
 
