@@ -1,20 +1,12 @@
 <template>
   <div>
-    <h4>Login</h4>
-    <form>
-      <label for="email">E-Mail Address</label>
-      <div>
-        <input id="email" type="email" v-model="email" required autofocus />
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <div>
-          <input id="password" type="password" v-model="password" required />
-        </div>
-      </div>
-      <div>
-        <button type="submit">Login</button>
-      </div>
+    <h4>Please Login</h4>
+    <form action="" method="GET">
+      <label for="username">User name</label>
+      <input id="username" type="text" v-model="username" required autofocus />
+      <label for="password">Password</label>
+      <input id="password" type="password" v-model="password" required />
+      <input type="submit" value="Login" />
     </form>
   </div>
 </template>
@@ -24,7 +16,7 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "",
+      username: "",
       password: "",
     };
   },

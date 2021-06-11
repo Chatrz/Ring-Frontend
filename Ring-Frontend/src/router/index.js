@@ -12,8 +12,8 @@ import AdminDash from '@/components/Admin/AdminDash'
 // Initializing vue-router
 Vue.use(Router)
 
-// Exporting routers
-export default new Router({
+// Creating instance
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -52,3 +52,11 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.name == 'admindash')
+    console.log("> Admin access");
+  next();
+})
+
+export default router;
