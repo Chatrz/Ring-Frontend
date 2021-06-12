@@ -56,9 +56,9 @@
               />
             </form>
             <div class="mt-3" v-if="has_errors">
-              <div v-for="error in errors" :key="error">
+              <b-alert v-for="error in errors" :key="error" show variant="danger">
                 {{ error }}
-              </div>
+              </b-alert>
             </div>
           </div>
         </div>
