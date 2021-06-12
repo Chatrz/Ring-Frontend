@@ -4,50 +4,105 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <b-icon
-              icon="gear-fill"
-              animation="spin"
-              font-scale="5"
-            ></b-icon>
+            <div>
+              <b-icon
+                icon="gear-fill"
+                animation="spin"
+                font-scale="4"
+                style="disply: inline-block; color: #f07c00ff"
+              ></b-icon>
+              <b-icon
+                icon="gear-fill"
+                animation="spin"
+                font-scale="5"
+                style="disply: inline-block"
+              ></b-icon>
+              <b-icon
+                icon="gear-fill"
+                animation="spin"
+                font-scale="3"
+                style="disply: inline-block; color: #f07c00ff"
+              ></b-icon>
+            </div>
             <form
               class="form-signin"
               id="register-form"
               @submit.prevent="sendRegisterForm"
               method="GET"
             >
-              <input
-                id="name"
-                type="text"
-                v-model="name"
-                class="form-control form-group mt-3"
-                placeholder="نام کاربری"
-                required
-                autofocus
-              />
-              <input
-                id="email"
-                type="email"
-                v-model="email"
-                class="form-control form-group mt-3"
-                placeholder="ایمیل"
-                required
-              />
-              <input
-                id="password"
-                type="password"
-                v-model="password"
-                class="form-control form-group mt-3"
-                placeholder="رمز عبور"
-                required
-              />
-              <input
-                id="password-confirm"
-                type="password"
-                v-model="password_confirmation"
-                class="form-control form-group mt-3"
-                placeholder="تکرار رمز عبور"
-                required
-              />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-icon
+                    class="pt-15"
+                    icon="person-fill"
+                    font-scale="1"
+                    style="disply: inline-block"
+                  ></b-icon>
+                </b-input-group-prepend>
+                <input
+                  id="name"
+                  type="text"
+                  v-model="name"
+                  class="form-control form-group mt-3"
+                  placeholder="نام کاربری"
+                  required
+                  autofocus
+                />
+              </b-input-group>
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-icon
+                    class="pt-15"
+                    icon="envelope"
+                    font-scale="1"
+                    style="disply: inline-block"
+                  ></b-icon>
+                </b-input-group-prepend>
+                <input
+                  id="email"
+                  type="email"
+                  v-model="email"
+                  class="form-control form-group mt-3"
+                  placeholder="ایمیل"
+                  required
+                />
+              </b-input-group>
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-icon
+                    class="pt-15"
+                    icon="key-fill"
+                    font-scale="1"
+                    style="disply: inline-block"
+                  ></b-icon>
+                </b-input-group-prepend>
+                <input
+                  id="password"
+                  type="password"
+                  v-model="password"
+                  class="form-control form-group mt-3"
+                  placeholder="رمز عبور"
+                  required
+                />
+              </b-input-group>
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-icon
+                    class="pt-15"
+                    icon="key-fill"
+                    font-scale="1"
+                    style="disply: inline-block"
+                  ></b-icon>
+                </b-input-group-prepend>
+                <input
+                  id="password-confirm"
+                  type="password"
+                  v-model="password_confirmation"
+                  class="form-control form-group mt-3"
+                  placeholder="تکرار رمز عبور"
+                  required
+                />
+              </b-input-group>
               <input
                 class="btn btn-lg btn-primary btn-block btn-signin mt-3 subbtn"
                 type="submit"
@@ -56,7 +111,12 @@
               />
             </form>
             <div class="mt-3" v-if="has_errors">
-              <b-alert v-for="error in errors" :key="error" show variant="danger">
+              <b-alert
+                v-for="error in errors"
+                :key="error"
+                show
+                variant="danger"
+              >
                 {{ error }}
               </b-alert>
             </div>
@@ -95,8 +155,10 @@ export default {
       if (this.name == "") this.errors.push("لطفا نام کاربری را وارد کنید");
       if (this.password == "") this.errors.push("لطفا رمز خود را وارد کنید");
       if (this.email == "") this.errors.push("لطفا یک ایمیل وارد کنید");
-      if (this.validateEmail(this.email)) this.errors.push("ایمیل شما معتبر نمی باشد");
-      if (this.password != this.password_confirmation) this.errors.push("تکرار رمز عبور به اشتباه صورت گرفته است");
+      if (this.validateEmail(this.email))
+        this.errors.push("ایمیل شما معتبر نمی باشد");
+      if (this.password != this.password_confirmation)
+        this.errors.push("تکرار رمز عبور به اشتباه صورت گرفته است");
       if (this.errors.length > 0) this.has_errors = true;
     },
   },
@@ -114,5 +176,16 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+</style>
+
+<style scoped>
+input:not([type="submit"]) {
+  padding: 10px 20px;
+  border: 1px solid #f07c00ff;
+}
+
+.pt-15 {
+  padding-top: 15px;
 }
 </style>
