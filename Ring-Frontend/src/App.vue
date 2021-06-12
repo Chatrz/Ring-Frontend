@@ -51,11 +51,16 @@ export default {
 <style>
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+* {
+  direction: rtl;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  direction: rtl;
 }
 
 .navigation-for-test {

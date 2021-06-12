@@ -16,7 +16,7 @@
                 type="text"
                 v-model="username"
                 class="form-control form-group mt-3"
-                placeholder="User Name"
+                placeholder="نام کاربری"
                 required
                 autofocus
               />
@@ -24,16 +24,22 @@
                 id="password"
                 type="password"
                 v-model="password"
-                placeholder="Password"
+                placeholder="رمز عبور"
                 class="form-control form-group mt-3"
                 required
               />
               <input
                 class="btn btn-lg btn-primary btn-block btn-signin mt-3 subbtn"
                 type="submit"
-                value="Login"
+                value="ورود"
+                @click="validateForm"
               />
             </form>
+            <div class="mt-3 " v-if="has_errors">
+              <div v-for="error in errors" :key="error">
+                {{ error }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48,12 +54,24 @@ export default {
     return {
       username: "",
       password: "",
+      has_errors: false,
+      errors: [],
     };
   },
   methods: {
     sendLogInForm() {
       console.log(this.username + " " + this.password);
     },
+    validateForm() {
+      this.errors = [];
+      this.has_errors = false;
+      if (this.username == "")
+        this.errors.push("لطفا نام کاربری را وارد کنید");
+      if (this.password == "")
+        this.errors.push("لطفا رمز خود را وارد کنید");
+      if (this.errors.length > 0)
+        this.has_errors = true;
+    }
   },
 };
 </script>
@@ -64,17 +82,17 @@ export default {
 }
 
 .blue-login-background {
-  background-image: linear-gradient(to bottom right, #000066, #ffffff);
+  background-image: linear-gradient(to bottom right, #f07c00ff, #ffffff);
 }
 
 .subbtn {
-  background: #000066;
+  background: #f07c00ff;
   color: #ffffff;
-  border-color: #000066;
+  border-color: #f07c00ff;
 }
 
 .subbtn:hover {
   background: #ffffff;
-  color: #000066;
+  color: #f07c00ff;
 }
 </style>
