@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100 blue-login-background-rvrs">
+  <div class="h-100 blue-login-background">
     <div class="container h-80">
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
@@ -7,8 +7,7 @@
             <b-icon
               icon="gear-fill"
               animation="spin"
-              style="color: #ffffff"
-              font-scale="4"
+              font-scale="5"
             ></b-icon>
             <form
               class="form-signin"
@@ -106,7 +105,14 @@ export default {
 
 
 <style>
-.blue-login-background-rvrs {
+.blue-login-background {
+  background: #f07c00ff;
   background-image: linear-gradient(to bottom right, #ffffff, #f07c00ff);
+  background-image: url("../../assets/Logo.svg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 </style>

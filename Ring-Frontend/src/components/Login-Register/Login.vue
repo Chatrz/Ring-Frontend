@@ -4,7 +4,7 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <b-icon icon="gear-fill" animation="spin" style="color:#ffffff" font-scale="4"></b-icon>
+            <b-icon icon="gear-fill" animation="spin" font-scale="5"></b-icon>
             <form
               class="form-signin"
               id="login-form"
@@ -81,14 +81,11 @@ export default {
   height: 80vh;
 }
 
-.blue-login-background {
-  background-image: linear-gradient(to bottom right, #f07c00ff, #ffffff);
-}
-
 .subbtn {
   background: #f07c00ff;
   color: #ffffff;
   border-color: #f07c00ff;
+  outline: none;
 }
 
 .subbtn:hover {
