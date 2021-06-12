@@ -4,7 +4,7 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <p class="profile-name-card">Please Login into website</p>
+            <b-icon icon="gear-fill" animation="spin" style="color:#ffffff" font-scale="4"></b-icon>
             <form
               class="form-signin"
               id="login-form"
