@@ -1,27 +1,30 @@
 <template>
   <div>
-    <div>
-      {{ hour + " : " + minute + " : " + second }}
+    <div class="text-center mt-5 mb-5 pt-2 pb-2">
+      <span class="clock-text" style="direction:ltr;">{{ getTime }}</span>
     </div>
-    <b-form inline>
-      <label for="h-input">Hour</label>
+    <b-form class="text-center" inline>
+      <label for="h-input">ساعت :</label>
       <b-form-input
         id="h-input"
-        class="mb-2 mr-sm-2 mb-sm-0"
+        class="mb-2 mr-sm-2 mb-sm-0 sm-width"
         v-model="inputH"
       ></b-form-input>
-      <label for="m-input">Minutes</label>
+      <label for="m-input">دقیقه :</label>
       <b-form-input
         id="m-input"
-        class="mb-2 mr-sm-2 mb-sm-0"
+        class="mb-2 mr-sm-2 mb-sm-0 sm-width"
         v-model="inputM"
       ></b-form-input>
-      <button variant="primary" @click="updateChange">Update</button>
+      <b-button variant="primary" class="mr-5" @click="updateChange" style="margin-right: 20px;">اعمال تغییرات</b-button>
     </b-form>
-    <button
-      variant="primary"
+    <div class="text-center mt-5">
+    <b-button
+      lg="4"
       @click="stopGame"
-    >{{ pause ? 'GO' : 'STOP' }}</button>
+      :class="[{'btn-danger': !pause, 'btn-success': pause}, 'mt-5', 'btn', 'btn-lg']"
+    >{{ pause ? 'ادامه بازی' : 'بازی را نگه دار' }}</b-button>
+    </div>
   </div>
 </template>
 
@@ -83,5 +86,22 @@ export default {
   created() {
     this.countDownTimer();
   },
+  computed: {
+    getTime() {
+      return this.second + " : " + this.minute + " : " + this.hour; 
+    }
+  }
 };
 </script>
+
+<style scoped>
+.clock-text {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.sm-width {
+  width: 100px;
+  display: inline-block;
+}
+</style>
