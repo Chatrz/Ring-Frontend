@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <b-row class="my-1">
+  <div class="m-auto w-50 mt-5 pt-3">
+    <b-row class="my-1 mb-3">
       <b-col sm="2">
-        <label for="input-old">Old:</label>
+        <label for="input-old">تابع فعلی :</label>
       </b-col>
       <b-col sm="10">
         <b-form-input
@@ -13,9 +13,9 @@
         ></b-form-input>
       </b-col>
     </b-row>
-    <b-row class="my-1">
+    <b-row class="my-1 mt-3 mb-3">
       <b-col sm="2">
-        <label for="input-new">New:</label>
+        <label for="input-new">تابع جدید را وارد کنید :</label>
       </b-col>
       <b-col sm="10">
         <b-form-input
@@ -25,11 +25,11 @@
         ></b-form-input>
       </b-col>
     </b-row>
-    <div class="mt-3">
-      <b-button-group>
-        <b-button variant="success" @click="sendFunction">Update</b-button>
-        <b-button variant="info" @click="clear">Clear</b-button>
-      </b-button-group>
+    <div class="mt-5 text-center">
+        <b-button variant="success" v-show="!readyToSend" @click="toggle">به روز رسانی</b-button>
+        <b-button variant="warning" v-show="readyToSend" @click="sendFunction">تغییر بده</b-button>
+        <b-button variant="primary" v-show="readyToSend" @click="toggle">بازگشت</b-button>
+        <b-button variant="danger" @click="clear">‍پاک کردن</b-button>
     </div>
   </div>
 </template>
@@ -41,15 +41,21 @@ export default {
     return {
       new_function: "",
       old_function: "Old Function",
+      readyToSend: false
     };
   },
   methods: {
     sendFunction() {
       this.old_function = this.new_function;
+      this.toggle();
+      this.clear();
     },
     clear() {
       this.new_function = "";
     },
+    toggle() {
+      this.readyToSend = !this.readyToSend;
+    }
   },
 };
 </script>
