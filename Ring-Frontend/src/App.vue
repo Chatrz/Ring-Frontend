@@ -46,7 +46,7 @@ export default {
   /**
    * App is our main component where we use vue-routers to
    * navigate in our website parts.
-   * 
+   *
    */
   name: "App",
 };
@@ -56,13 +56,19 @@ export default {
 /* Importing bootstrap */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+@font-face {
+  font-family: "IranSans";
+  src: local("IranSans"),
+    url('./fonts/IRANSansWeb(FaNum).ttf') format("truetype");
+}
+
 /* Direction is Right to Left */
 * {
   direction: rtl;
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "IranSans", "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
