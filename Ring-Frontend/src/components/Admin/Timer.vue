@@ -36,18 +36,14 @@ export default {
       minute: 59,
       second: 59,
       pause: false,
-      restart: false
+      restart: false,
+      timeFunction: ""
     };
   },
   methods: {
     countDownTimer() {
-      if (this.restart)
-      {
-        this.restart = false;
-        return;
-      }
       if (this.second > 0 || this.minute > 0 || this.hour > 0) {
-        setTimeout(() => {
+        this.timeFunction = setTimeout(() => {
           if (!this.pause) {
             this.tikTok();
           }
@@ -79,7 +75,7 @@ export default {
       this.pause = false;
     },
     stopGame() {
-      this.restart = true;
+      clearTimeout(this.timeFunction);
       this.pause = !this.pause;
       this.countDownTimer();
     },
