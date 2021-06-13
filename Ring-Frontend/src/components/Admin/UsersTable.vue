@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h1>List of users</h1>
+    <div class="m-auto w-75 mt-5">
+        <h1 class="mt-3 mb-3">لیست کاربران</h1>
         <div v-for="singleTeam in teams" :key="singleTeam">
-            <b-table striped hover :items="getTeamMembers(singleTeam)"></b-table>
+            <b-table hover :items="getTeamMembers(singleTeam)" :fields="fields" class="mt-3 mb-3 table-striped"></b-table>
         </div>
     </div>
 </template>
@@ -12,6 +12,20 @@ export default {
   name: "UsersTable",
   data() {
     return {
+      fields: [
+        {
+          key: 'team',
+          label: 'تیم'
+        },
+        {
+          key: 'name',
+          label: 'نام کاربر'
+        },
+        {
+          key: 'email',
+          label: 'ایمیل کاربر'
+        }
+      ],
       users: [
         { team: "Alpha", name: "Ali", email: "Mai1l" },
         { team: "Alpha2", name: "Ali2", email: "Mail2" },
@@ -30,3 +44,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+th, td {
+  padding: 8px 16px;
+}
+</style>

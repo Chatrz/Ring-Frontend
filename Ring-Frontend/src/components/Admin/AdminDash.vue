@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card no-body>
+    <b-card no-body style="height:100vh;">
       <b-tabs card v-model="tabIndex">
         <b-tab
           title="فرستادن اطلاعیه"
@@ -79,10 +79,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-b-card-text {
-  height: 100vh;
-}
-</style>
-

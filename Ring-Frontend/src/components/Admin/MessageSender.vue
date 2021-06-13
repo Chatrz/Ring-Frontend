@@ -11,7 +11,7 @@
         v-model="adminMessage"
         placeholder="متن خود را وارد کنید"
         lazy-formatter
-        style="height:100px;"
+        style="height:200px;"
       ></b-form-textarea>
     </b-form-group>
     <div class="mt-5">
