@@ -4,7 +4,7 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <div>
+            <div class="mb-5">
               <b-icon
                 icon="gear-fill"
                 animation="spin"
@@ -30,12 +30,11 @@
               @submit.prevent="sendRegisterForm"
               method="GET"
             >
-              <b-input-group>
+              <b-input-group class="mt-3 mb-3">
                 <b-input-group-prepend>
                   <b-icon
-                    class="pt-15"
                     icon="person-fill"
-                    font-scale="1"
+                    font-scale="3"
                     style="disply: inline-block"
                   ></b-icon>
                 </b-input-group-prepend>
@@ -49,12 +48,11 @@
                   autofocus
                 />
               </b-input-group>
-              <b-input-group>
+              <b-input-group class="mt-3 mb-3">
                 <b-input-group-prepend>
                   <b-icon
-                    class="pt-15"
                     icon="envelope"
-                    font-scale="1"
+                    font-scale="3"
                     style="disply: inline-block"
                   ></b-icon>
                 </b-input-group-prepend>
@@ -67,12 +65,11 @@
                   required
                 />
               </b-input-group>
-              <b-input-group>
+              <b-input-group class="mt-3 mb-3">
                 <b-input-group-prepend>
                   <b-icon
-                    class="pt-15"
                     icon="key-fill"
-                    font-scale="1"
+                    font-scale="3"
                     style="disply: inline-block"
                   ></b-icon>
                 </b-input-group-prepend>
@@ -85,12 +82,11 @@
                   required
                 />
               </b-input-group>
-              <b-input-group>
+              <b-input-group class="mt-3 mb-3">
                 <b-input-group-prepend>
                   <b-icon
-                    class="pt-15"
                     icon="key-fill"
-                    font-scale="1"
+                    font-scale="3"
                     style="disply: inline-block"
                   ></b-icon>
                 </b-input-group-prepend>
@@ -181,6 +177,8 @@ export default {
 
 <style scoped>
 input:not([type="submit"]) {
+  margin-top: 0px !important;
+  margin-right: 5px !important;
   padding: 10px 20px;
   border: 1px solid #f07c00ff;
 }
