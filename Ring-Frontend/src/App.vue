@@ -78,4 +78,3 @@ export default {
   content: " | ";
 }
 </style>
-Login

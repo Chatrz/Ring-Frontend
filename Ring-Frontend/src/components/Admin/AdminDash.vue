@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card no-body style="height:100vh;">
+    <b-card no-body style="height:100vh;" class="admin-bg">
       <b-tabs card v-model="tabIndex">
         <b-tab
           title="فرستادن اطلاعیه"
@@ -47,6 +47,13 @@
             <users-table />
           </b-card-text>
         </b-tab>
+        <b-tab
+          title="خروج"
+          title-item-class="bg-danger text-light"
+          title-link-class="bg-danger text-light"
+          @click="logout"
+        > 
+        </b-tab>
       </b-tabs>
     </b-card>
   </div>
@@ -71,11 +78,27 @@ export default {
   methods: {
     linkClass(idx) {
       if (this.tabIndex === idx) {
-        return ["bg-warning", "text-light"];
+        return ["bg-warning", "text-dark"];
       } else {
-        return ["bg-light", "text-info"];
+        return ["bg-light", "text-dark"];
       }
     },
+    logout() {
+      this.$router.push('/');
+    }
   },
 };
 </script>
+
+<style scoped>
+.admin-bg {
+  background: #f07c00ff;
+  background-image: linear-gradient(to bottom right, #ffffff, #f07c00ff);
+  background-image: url("../../assets/Logo.svg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
