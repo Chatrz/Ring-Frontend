@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  name: "Timer",
   data() {
     return {
       inputH: "0",
