@@ -16,13 +16,12 @@
         class="mb-2 mr-sm-2 mb-sm-0"
         v-model="inputM"
       ></b-form-input>
-      <button variant="primary" @click="updateChange">Update</button>>
+      <button variant="primary" @click="updateChange">Update</button>
     </b-form>
     <button
       variant="primary"
       @click="stopGame"
-      :value="pause ? 'GO' : 'STOP'"
-    ></button>
+    >{{ pause ? 'GO' : 'STOP' }}</button>
   </div>
 </template>
 
@@ -37,10 +36,16 @@ export default {
       minute: 59,
       second: 59,
       pause: false,
+      restart: false
     };
   },
   methods: {
     countDownTimer() {
+      if (this.restart)
+      {
+        this.restart = false;
+        return;
+      }
       if (this.second > 0 || this.minute > 0 || this.hour > 0) {
         setTimeout(() => {
           if (!this.pause) {
@@ -74,7 +79,9 @@ export default {
       this.pause = false;
     },
     stopGame() {
+      this.restart = true;
       this.pause = !this.pause;
+      this.countDownTimer();
     },
   },
   created() {

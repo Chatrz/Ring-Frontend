@@ -18,10 +18,10 @@ export default {
         { team: "Alpha2", name: "Ali1", email: "Mail3" },
         { team: "Alpha", name: "Ali1", email: "Mail" },
       ],
-      teams: ["Alpha1", "Alpha2"],
+      teams: ["Alpha", "Alpha2"],
     };
   },
-  computed: {
+  methods: {
       getTeamMembers(team_name) {
           return this.users.filter(function(e) {
               return e.team == team_name;

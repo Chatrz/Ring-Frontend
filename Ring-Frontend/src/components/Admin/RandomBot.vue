@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     sendFunction() {
-      console.log(this.new_function);
+      this.old_function = this.new_function;
     },
     clear() {
       this.new_function = "";

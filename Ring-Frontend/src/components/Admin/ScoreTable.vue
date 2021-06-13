@@ -24,9 +24,9 @@ export default {
   data() {
     return {
       teams: [
-        { t_name: "Alpha", t_score: 20 },
-        { t_name: "Betha", t_score: 10 },
-        { t_name: "Gama", t_score: 50 },
+        { t_name: "Alpha", t_score: 20, update: false },
+        { t_name: "Betha", t_score: 10, update: false },
+        { t_name: "Gama", t_score: 50, update: false },
       ],
     };
   },
@@ -40,7 +40,7 @@ export default {
     change() {
       this.teams.forEach((element) => {
         if (element["update"]) {
-          element["t_score"] = element["new_score"];
+          element["t_score"] = parseInt(element["new_score"]);
           element["update"] = false;
         }
       });
@@ -52,8 +52,8 @@ export default {
       });
     },
     compare(a, b) {
-      if (a.t_score > b.t_score) return 1;
-      if (a.t_score < b.t_score) return -1;
+      if (a.t_score > b.t_score) return -1;
+      if (a.t_score < b.t_score) return 1;
       return 0;
     },
   },
