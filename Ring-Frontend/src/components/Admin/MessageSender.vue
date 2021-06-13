@@ -11,18 +11,26 @@
         v-model="adminMessage"
         placeholder="متن خود را وارد کنید"
         lazy-formatter
-        style="height:200px;"
+        style="height: 200px"
       ></b-form-textarea>
     </b-form-group>
     <div class="mt-5">
-        <b-button lg="4" class="ml-5 p-2" variant="success" @click="send">ارسال پیام</b-button>
-        <b-button lg="4" class="mr-5 p-2" variant="danger" @click="clear">پاک کردن پ‍یام</b-button>
+      <b-button lg="4" class="ml-5 p-2" variant="success" @click="send"
+        >ارسال پیام</b-button
+      >
+      <b-button lg="4" class="mr-5 p-2" variant="danger" @click="clear"
+        >پاک کردن پ‍یام</b-button
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  /**
+   * The component for sending messages to the users from Admin.
+   * 
+   */
   name: "MessageSender",
   data() {
     return {

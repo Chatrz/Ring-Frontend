@@ -9,13 +9,13 @@ import store from './store'
 
 // Import BootstrapVue
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-// Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css' // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+
+Vue.use(BootstrapVue) // Make BootstrapVue available throughout your project
+
+Vue.use(IconsPlugin) // Optionally install the BootstrapVue icon components plugin
+
 
 // Set the http prototype to Axios module
 Vue.prototype.$http = Axios
@@ -24,6 +24,7 @@ Vue.config.productionTip = false
 
 // Initialize Vue-Router
 Vue.use(VueRouter)
+
 
 /* eslint-disable no-new */
 new Vue({

@@ -18,7 +18,8 @@
           class="mb-2 mr-5 mb-sm-0 d-inline-block w-25 pr-3 pl-3"
           v-model="team['update']"
           size="lg"
-        >تغییر داده شود ؟</b-form-checkbox>
+          >تغییر داده شود ؟</b-form-checkbox
+        >
       </b-form>
     </div>
     <div class="mt-5 text-center pt-3">
@@ -26,13 +27,20 @@
       <b-button variant="danger" @click="change">اعمال تغییرات</b-button>
     </div>
     <div class="text-center mt-3">
-      <span class="alert-msg">توجه کنید که در صورت اعمال تغییرات نمی توان آن هارا به صورت قبل باز گرداند!</span>
+      <span class="alert-msg"
+        >توجه کنید که در صورت اعمال تغییرات نمی توان آن هارا به صورت قبل باز
+        گرداند!</span
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  /**
+   * Competetion score table.
+   * 
+   */
   name: "ScoreTable",
   data() {
     return {

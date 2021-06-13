@@ -125,6 +125,10 @@
 
 <script>
 export default {
+  /**
+   * Register page component.
+   * 
+   */
   name: "Register",
   data() {
     return {

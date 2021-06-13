@@ -91,6 +91,10 @@
 
 <script>
 export default {
+  /**
+   * Login page component.
+   * 
+   */
   name: "Login",
   data() {
     return {

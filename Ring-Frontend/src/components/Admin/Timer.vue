@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center mt-5 mb-5 pt-2 pb-2">
-      <span class="clock-text" style="direction:ltr;">{{ getTime }}</span>
+      <span class="clock-text" style="direction: ltr">{{ getTime }}</span>
     </div>
     <b-form class="text-center" inline>
       <label for="h-input">ساعت :</label>
@@ -16,20 +16,36 @@
         class="mb-2 mr-sm-2 mb-sm-0 sm-width"
         v-model="inputM"
       ></b-form-input>
-      <b-button variant="primary" class="mr-5" @click="updateChange" style="margin-right: 20px;">اعمال تغییرات</b-button>
+      <b-button
+        variant="primary"
+        class="mr-5"
+        @click="updateChange"
+        style="margin-right: 20px"
+        >اعمال تغییرات</b-button
+      >
     </b-form>
     <div class="text-center mt-5">
-    <b-button
-      lg="4"
-      @click="stopGame"
-      :class="[{'btn-danger': !pause, 'btn-success': pause}, 'mt-5', 'btn', 'btn-lg']"
-    >{{ pause ? 'ادامه بازی' : 'بازی را نگه دار' }}</b-button>
+      <b-button
+        lg="4"
+        @click="stopGame"
+        :class="[
+          { 'btn-danger': !pause, 'btn-success': pause },
+          'mt-5',
+          'btn',
+          'btn-lg',
+        ]"
+        >{{ pause ? "ادامه بازی" : "بازی را نگه دار" }}</b-button
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  /**
+   * Competetion timer setup.
+   * 
+   */
   name: "Timer",
   data() {
     return {
@@ -40,7 +56,7 @@ export default {
       second: 59,
       pause: false,
       restart: false,
-      timeFunction: ""
+      timeFunction: "",
     };
   },
   methods: {
@@ -88,9 +104,9 @@ export default {
   },
   computed: {
     getTime() {
-      return this.second + " : " + this.minute + " : " + this.hour; 
-    }
-  }
+      return this.second + " : " + this.minute + " : " + this.hour;
+    },
+  },
 };
 </script>
 

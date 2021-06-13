@@ -26,22 +26,33 @@
       </b-col>
     </b-row>
     <div class="mt-5 text-center">
-        <b-button variant="success" v-show="!readyToSend" @click="toggle">به روز رسانی</b-button>
-        <b-button variant="warning" v-show="readyToSend" @click="sendFunction">تغییر بده</b-button>
-        <b-button variant="primary" v-show="readyToSend" @click="toggle">بازگشت</b-button>
-        <b-button variant="danger" @click="clear">‍پاک کردن</b-button>
+      <b-button variant="success" v-show="!readyToSend" @click="toggle"
+        >به روز رسانی</b-button
+      >
+      <b-button variant="warning" v-show="readyToSend" @click="sendFunction"
+        >تغییر بده</b-button
+      >
+      <b-button variant="primary" v-show="readyToSend" @click="toggle"
+        >بازگشت</b-button
+      >
+      <b-button variant="danger" @click="clear">‍پاک کردن</b-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  /**
+   * This is the application bot function that
+   * is defined by admin.
+   * 
+   */
   name: "RandomBot",
   data() {
     return {
       new_function: "",
       old_function: "Old Function",
-      readyToSend: false
+      readyToSend: false,
     };
   },
   methods: {
@@ -55,7 +66,7 @@ export default {
     },
     toggle() {
       this.readyToSend = !this.readyToSend;
-    }
+    },
   },
 };
 </script>
