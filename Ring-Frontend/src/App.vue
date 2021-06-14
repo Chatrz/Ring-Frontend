@@ -18,21 +18,6 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/Factory" custom v-slot="{ navigate }">
-          <a @click="navigate" role="link">Fac</a>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/Land" custom v-slot="{ navigate }">
-          <a @click="navigate" role="link">Land</a>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/Market" custom v-slot="{ navigate }">
-          <a @click="navigate" role="link">Market</a>
-        </router-link>
-      </li>
-      <li>
         <router-link to="/AdminDash" custom v-slot="{ navigate }">
           <a @click="navigate" role="link">Admin</a>
         </router-link>
