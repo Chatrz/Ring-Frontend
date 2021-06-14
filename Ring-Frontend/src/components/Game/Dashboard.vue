@@ -5,6 +5,8 @@
       <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)">Factory</b-nav-item>
       <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)">Land</b-nav-item>
       <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)">Market</b-nav-item>
+      <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)">Score Board</b-nav-item>
+      <b-nav-item>{{ "Clock in here "}}</b-nav-item>
       <b-navbar-toggle target="navbar-toggle-collapse">
         <template #default="{ expanded }">
           <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
@@ -25,6 +27,7 @@
       <factory v-show="idx == 1" />
       <land v-show="idx == 2" />
       <market v-show="idx == 3" />
+      <scoreboard v-show="idx == 4" />
     </div>
   </div>
 </template>
@@ -33,8 +36,9 @@
 import Factory from "./Factory.vue";
 import Land from "./Land.vue";
 import Market from "./Market.vue";
+import Scoreboard from './Scoreboard.vue';
 export default {
-  components: { Factory, Land, Market },
+  components: { Factory, Land, Market, Scoreboard },
   name: "Dashboard",
   data() {
     return {
