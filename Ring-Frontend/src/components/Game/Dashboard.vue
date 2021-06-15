@@ -10,22 +10,24 @@
       </b-navbar-brand>
       <b-nav>
         <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-          ><span class="default">Factory</span></b-nav-item
+          ><span class="default">خط تولید</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)"
-          ><span class="default">Land</span></b-nav-item
+          ><span class="default">زمین</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)"
-          ><span class="default">Market</span></b-nav-item
+          ><span class="default">بازار</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)"
-          ><span class="default">Score Board</span></b-nav-item
+          ><span class="default">جدول امتیازها</span></b-nav-item
         >
-        <b-nav-item class="navlink default-clk"><span class="default-clk">{{ "Clock in here " }}</span></b-nav-item>
+        <b-nav-item class="navlink default-clk"
+          ><span class="default-clk">{{ "02:59:59" }}</span></b-nav-item
+        >
       </b-nav>
       <b-navbar-toggle
         target="navbar-toggle-collapse"
-        style="margin-left: 15px;"
+        style="margin-left: 15px"
         class="bg-light"
       >
         <template #default="{ expanded }">
@@ -35,25 +37,26 @@
       </b-navbar-toggle>
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item style="text-align: left; padding-left: 10px" href="#">{{
-            username + " | " + email
-          }}</b-nav-item>
+          <b-nav-item
+            style="text-align: left; padding-left: 10px;"
+            href="#"
+          >
+            <span style="color: #ffffff;">{{ "نام کاربری" + " | " + "ایمیل" }}</span>
+          </b-nav-item>
           <b-nav-item style="text-align: left; padding-left: 10px" href="#">
             <button class="btn btn-danger text-light" @click="logout">
-              Logout
+              خروج
             </button>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="m-0 p-0 admin-bg w-100" style="height:100vh;">
-      <div v-show="idx == 0">
-        {{ "Welcome" + username }}
-      </div>
-      <factory v-show="idx == 1" />
-      <land v-show="idx == 2" />
-      <market v-show="idx == 3" />
-      <scoreboard v-show="idx == 4" />
+    <div class="m-0 p-0 admin-bg w-100" style="height: 100vh">
+      <main-panel class="admin-bg pb-5" v-show="idx == 0" />
+      <factory class="admin-bg pb-5" v-show="idx == 1" />
+      <land class="admin-bg pb-5" v-show="idx == 2" />
+      <market class="admin-bg pb-5" v-show="idx == 3" />
+      <scoreboard class="admin-bg pb-5" v-show="idx == 4" />
     </div>
   </div>
 </template>
@@ -61,10 +64,11 @@
 <script>
 import Factory from "./Factory.vue";
 import Land from "./Land.vue";
+import MainPanel from './MainPanel.vue';
 import Market from "./Market.vue";
 import Scoreboard from "./Scoreboard.vue";
 export default {
-  components: { Factory, Land, Market, Scoreboard },
+  components: { Factory, Land, Market, Scoreboard, MainPanel },
   name: "Dashboard",
   data() {
     return {
@@ -97,7 +101,7 @@ export default {
   color: #ffffff;
 }
 
-.normalLink  {
+.normalLink {
   background: #ffffff;
   color: #000000;
 }
@@ -128,6 +132,10 @@ export default {
 
 .admin-bg {
   background: #f07c00ff;
-  background-image: linear-gradient(to bottom, rgb(206, 106, 0), rgba(255, 163, 65, 0.712));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(206, 106, 0),
+    rgba(255, 163, 65, 0.712)
+  );
 }
 </style>

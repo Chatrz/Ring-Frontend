@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <b-table striped hover :items="teams" :fields="fields">
+  <div class="pt-5">
+    <b-table
+      striped
+      dark
+      hover
+      :items="teams"
+      :fields="fields"
+      class="m-auto w-50"
+    >
       <template #cell(index)="data">
         {{ data.index + 1 }}
       </template>
@@ -20,9 +27,9 @@ export default {
   data() {
     return {
       fields: [
-        "index",
-        { key: "t_name", label: "" },
-        { key: "t_score", label: "" },
+        { key: "index", label: "ردیف" },
+        { key: "t_name", label: "تیم" },
+        { key: "t_score", label: "امتیاز" },
       ],
       teams: [
         { t_name: "Alpha", t_score: 20 },
@@ -33,3 +40,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.gold {
+  background: gold;
+}
+
+.silver {
+  background: silver;
+}
+
+.bronze {
+  background: rgb(194, 53, 53);
+}
+</style>
