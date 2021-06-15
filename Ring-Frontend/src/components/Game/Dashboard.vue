@@ -1,25 +1,33 @@
 <template>
   <div>
-    <b-navbar toggleable>
-      <b-navbar-brand href="#" @click="setIndex(0)" :class="linkClass(0)"
-          >Ring</b-navbar-brand
-        >
+    <b-navbar toggleable class="bg-dark">
+      <b-navbar-brand href="#" @click="setIndex(0)">
+        <img
+          src="../../assets/Logo.svg"
+          style="width: 50px; height: 50px"
+          class="rounded-circle"
+        />
+      </b-navbar-brand>
       <b-nav>
         <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-          >Factory</b-nav-item
+          ><span class="default">Factory</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)"
-          >Land</b-nav-item
+          ><span class="default">Land</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)"
-          >Market</b-nav-item
+          ><span class="default">Market</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)"
-          >Score Board</b-nav-item
+          ><span class="default">Score Board</span></b-nav-item
         >
-        <b-nav-item>{{ "Clock in here " }}</b-nav-item>
+        <b-nav-item class="navlink default-clk"><span class="default-clk">{{ "Clock in here " }}</span></b-nav-item>
       </b-nav>
-      <b-navbar-toggle target="navbar-toggle-collapse" style="margin-left: 15px;">
+      <b-navbar-toggle
+        target="navbar-toggle-collapse"
+        style="margin-left: 15px;"
+        class="bg-light"
+      >
         <template #default="{ expanded }">
           <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
           <b-icon v-else icon="chevron-bar-down"></b-icon>
@@ -27,14 +35,18 @@
       </b-navbar-toggle>
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item style="text-align:left; padding-left: 10px;" href="#">{{ username + " | " + email }}</b-nav-item>
-          <b-nav-item style="text-align:left; padding-left: 10px;" href="#">
-            <button class="btn btn-danger text-light" @click="logout">Logout</button>
+          <b-nav-item style="text-align: left; padding-left: 10px" href="#">{{
+            username + " | " + email
+          }}</b-nav-item>
+          <b-nav-item style="text-align: left; padding-left: 10px" href="#">
+            <button class="btn btn-danger text-light" @click="logout">
+              Logout
+            </button>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="container m-0 p-0">
+    <div class="m-0 p-0 admin-bg w-100" style="height:100vh;">
       <div v-show="idx == 0">
         {{ "Welcome" + username }}
       </div>
@@ -67,9 +79,9 @@ export default {
     },
     linkClass(index) {
       if (this.idx === index) {
-        return ["bg-warning", "text-dark"];
+        return ["selectedLink", "navlink"];
       } else {
-        return ["bg-light", "text-dark"];
+        return ["normalLink", "navlink"];
       }
     },
     logout() {
@@ -80,4 +92,42 @@ export default {
 </script>
 
 <style scoped>
+.selectedLink {
+  background: #f07c00ff;
+  color: #ffffff;
+}
+
+.normalLink  {
+  background: #ffffff;
+  color: #000000;
+}
+
+.default {
+  color: #000000;
+}
+
+.default-clk {
+  color: #ffffff;
+  background: rgb(218, 117, 10);
+}
+
+.default-clk:hover {
+  background: #f07c00ff;
+}
+
+.normalLink:hover {
+  background: #adadad;
+}
+
+.navlink {
+  padding: 0 4px;
+  border: 0px solid black;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.admin-bg {
+  background: #f07c00ff;
+  background-image: linear-gradient(to bottom, rgb(206, 106, 0), rgba(255, 163, 65, 0.712));
+}
 </style>
