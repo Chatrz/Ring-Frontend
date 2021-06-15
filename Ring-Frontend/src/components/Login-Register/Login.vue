@@ -1,5 +1,53 @@
 <template>
-  <div class="h-100 blue-login-background">
+  <div class="h-100">
+    <b-icon
+      icon="gear-fill"
+      animation="spin"
+      font-scale="5"
+      style="
+        color: #adadad;
+        width: 1000px;
+        height: 1000px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
+    <b-icon
+      icon="gear-fill"
+      animation="spin"
+      font-scale="3"
+      style="
+        color: #000000;
+        width: 600px;
+        height: 600px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
+    <b-icon
+      icon="gear-fill"
+      animation="spin"
+      font-scale="3"
+      style="
+        color: #f07c00ff;
+        width: 350px;
+        height: 350px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        right: 350px;
+        bottom: -50px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
     <div class="container h-80">
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
@@ -9,32 +57,6 @@
               style="width: 150px; height: 150px"
               class="rounded-circle"
             />
-            <div class="mb-2">
-              <b-icon
-                icon="gear-fill"
-                animation="spin"
-                font-scale="1"
-                style="disply: inline-block; color: #f07c00ff"
-              ></b-icon>
-              <b-icon
-                icon="gear-fill"
-                animation="spin"
-                font-scale="4"
-                style="disply: inline-block"
-              ></b-icon>
-              <b-icon
-                icon="gear-fill"
-                animation="spin"
-                font-scale="5"
-                style="disply: inline-block; color: #f07c00ff"
-              ></b-icon>
-              <b-icon
-                icon="gear-fill"
-                animation="spin"
-                font-scale="2"
-                style="disply: inline-block"
-              ></b-icon>
-            </div>
             <form
               class="form-signin"
               id="login-form"
