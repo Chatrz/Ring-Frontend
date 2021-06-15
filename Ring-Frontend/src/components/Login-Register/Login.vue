@@ -4,7 +4,18 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <div class="mb-5">
+            <img
+              src="../../assets/Logo.svg"
+              style="width: 150px; height: 150px"
+              class="rounded-circle"
+            />
+            <div class="mb-2">
+              <b-icon
+                icon="gear-fill"
+                animation="spin"
+                font-scale="1"
+                style="disply: inline-block; color: #f07c00ff"
+              ></b-icon>
               <b-icon
                 icon="gear-fill"
                 animation="spin"
@@ -20,7 +31,7 @@
               <b-icon
                 icon="gear-fill"
                 animation="spin"
-                font-scale="3"
+                font-scale="2"
                 style="disply: inline-block"
               ></b-icon>
             </div>
@@ -93,7 +104,7 @@
 export default {
   /**
    * Login page component.
-   * 
+   *
    */
   name: "Login",
   data() {

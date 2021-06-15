@@ -4,24 +4,35 @@
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
           <div class="text-center">
-            <div class="mb-5">
+            <img
+              src="../../assets/Logo.svg"
+              style="width: 150px; height: 150px"
+              class="rounded-circle"
+            />
+            <div class="mb-2">
               <b-icon
                 icon="gear-fill"
                 animation="spin"
-                font-scale="4"
+                font-scale="1"
                 style="disply: inline-block; color: #f07c00ff"
               ></b-icon>
               <b-icon
                 icon="gear-fill"
                 animation="spin"
-                font-scale="5"
+                font-scale="4"
                 style="disply: inline-block"
               ></b-icon>
               <b-icon
                 icon="gear-fill"
                 animation="spin"
-                font-scale="3"
+                font-scale="5"
                 style="disply: inline-block; color: #f07c00ff"
+              ></b-icon>
+              <b-icon
+                icon="gear-fill"
+                animation="spin"
+                font-scale="2"
+                style="disply: inline-block"
               ></b-icon>
             </div>
             <form
@@ -127,7 +138,7 @@
 export default {
   /**
    * Register page component.
-   * 
+   *
    */
   name: "Register",
   data() {
@@ -168,14 +179,7 @@ export default {
 
 <style>
 .blue-login-background {
-  background: #f07c00ff;
-  background-image: linear-gradient(to bottom right, #ffffff, #f07c00ff);
-  background-image: url("../../assets/Logo.svg");
   background-color: #cccccc;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
 }
 </style>
 
