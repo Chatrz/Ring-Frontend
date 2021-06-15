@@ -6,6 +6,33 @@
       description="در نوشتن پیام دقت کنید. بعد از ارسال آن امکان بازگشت  وجود ندارد."
       class="mb-3 mt-5"
     >
+      <b-row class="m-0 p-0">
+        <b-col lg="1">
+          <label class="pt-2" for="message-title">عنوان :</label>
+        </b-col>
+        <b-col lg="11">
+          <b-form-input
+            id="message-title"
+            type="text"
+            v-model="title"
+            placeholder="عنوان پیام را وارد کنید ( در حالت بدون عنوان عبارت پیام از طرف ادمین ارسال می شود )"
+          ></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row class="m-0 p-0">
+        <b-col lg="1">
+          <label class="pt-2" for="message-p">ارزش :</label>
+        </b-col>
+        <b-col lg="11" class="pt-2">
+          <b-form-input
+            id="message-p"
+            type="range"
+            min="1"
+            max="3"
+            v-model="priority"
+          ></b-form-input>
+        </b-col>
+      </b-row>
       <b-form-textarea
         id="admin-msg"
         v-model="adminMessage"
@@ -29,19 +56,31 @@
 export default {
   /**
    * The component for sending messages to the users from Admin.
-   * 
+   *
    */
   name: "MessageSender",
   data() {
     return {
+      title: "پیام از طرف ادمین",
       adminMessage: "",
+      priority: 1,
     };
   },
   methods: {
     send() {
+      if (this.adminMessage == "") 
+      {
+        alert("به دلیل خالی بودن فیلد چیزی ارسال نشد.");
+        return;
+      }
+      if (this.title == "")
+      {
+        this.title = "پیام از طرف ادمین";
+      }
       console.log(this.adminMessage);
     },
     clear() {
+      this.title = "";
       this.adminMessage = "";
     },
   },
