@@ -1,5 +1,20 @@
 <template>
   <div class="pt-5">
+    <b-icon
+      icon="award-fill"
+      font-scale="5"
+      style="
+        color: #f07c00ff;
+        width: 900px;
+        height: 900px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        right: 50px;
+        top: 50px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
     <h2 class="text-center mt-3"> 
       {{ "جدول امتیازهای مسابقه " }}
     </h2>

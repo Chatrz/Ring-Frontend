@@ -4,7 +4,7 @@
       icon="grid1x2-fill"
       font-scale="5"
       style="
-        color: #f07c00ff;
+        color: #494949;
         width: 800px;
         height: 800px;
         overflow: hidden;
@@ -24,7 +24,7 @@
       controls
       indicators
       fade
-      background="#ababab"
+      background="#030303"
       img-width="512"
       img-height="240"
       style="text-shadow: 1px 1px 2px #333"
@@ -63,7 +63,7 @@
       </b-carousel-slide>
     </b-carousel>
 
-    <button class="btn btn-primary" type="button" @click="selectThisLand">{{ "همین زمین را انتخاب کن" }}</button>
+    <button class="btn subbtn" type="button" @click="selectThisLand">{{ "همین زمین را انتخاب کن" }}</button>
   </div>
 </template>
 
@@ -86,4 +86,15 @@ export default {
 </script>
 
 <style scoped>
+.subbtn {
+  background: #f07c00ff;
+  color: #ffffff;
+  border-color: #f07c00ff;
+  outline: none;
+}
+
+.subbtn:hover {
+  background: #ffffff;
+  color: #f07c00ff;
+}
 </style>

@@ -1,5 +1,20 @@
 <template>
   <div>
+    <b-icon
+      icon="house-door"
+      font-scale="5"
+      style="
+        color: #efefef;
+        width: 800px;
+        height: 800px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        left: 20px;
+        top: 50px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
     <h2 class="text-center pt-5 mt-5 mb-3">
       {{ "زمان باقی مانده تا پایان مسابقه " + "02:59:59" }}
     </h2>
