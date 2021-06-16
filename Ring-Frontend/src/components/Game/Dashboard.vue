@@ -51,12 +51,12 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="m-0 p-0 admin-bg w-100" style="height: 100vh">
-      <main-panel class="admin-bg pb-5" v-show="idx == 0" />
-      <factory class="admin-bg pb-5" v-show="idx == 1" />
-      <land class="admin-bg pb-5" v-show="idx == 2" />
-      <market class="admin-bg pb-5" v-show="idx == 3" />
-      <scoreboard class="admin-bg pb-5" v-show="idx == 4" />
+    <div class="m-0 p-0 w-100" style="height: 100vh">
+      <main-panel class="pb-5" v-show="idx == 0" />
+      <factory class="pb-5" v-show="idx == 1" />
+      <land class="pb-5" v-show="idx == 2" />
+      <market class="pb-5" v-show="idx == 3" />
+      <scoreboard class="pb-5" v-show="idx == 4" />
     </div>
   </div>
 </template>
@@ -128,14 +128,5 @@ export default {
   border: 0px solid black;
   border-radius: 5px;
   margin: 0 5px;
-}
-
-.admin-bg {
-  background: #f07c00ff;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(206, 106, 0),
-    rgba(255, 163, 65, 0.712)
-  );
 }
 </style>

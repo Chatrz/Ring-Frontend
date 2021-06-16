@@ -1,5 +1,11 @@
 <template>
   <div class="pt-5">
+    <h2 class="text-center mt-3"> 
+      {{ "جدول امتیازهای مسابقه " }}
+    </h2>
+    <div class="text-center mb-5" style="color: #adadad;">
+      {{ " توجه کنید که جدول هر ۵ دقیقه به روزرسانی می شود " }}
+    </div>
     <b-table
       striped
       dark

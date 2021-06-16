@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h3 class="text-center pt-5">
+    <h2 class="text-center pt-5 mt-5 mb-3">
       {{ "زمان باقی مانده تا پایان مسابقه " + "02:59:59" }}
-    </h3>
-    <div>
+    </h2>
+    <div class="mt-5 pt-4">
       <b-card
         :header="'اطلاعات شما'"
         header-text-variant="white"
@@ -20,7 +20,7 @@
         <b-card-text class="p-5">{{ "لیست اعضای تیم" }}</b-card-text>
       </b-card>
     </div>
-    <div class="m-auto w-50 mt-5 mb-5">
+    <div class="m-auto w-50 mt-5 mb-5 pt-5">
       <h3 class="text-center mt-3 mb-3">اطلاعیه ها :</h3>
       <b-card-group columns>
         <b-card
@@ -32,7 +32,7 @@
           class="m-auto w-75 mt-3 mb-2"
         >
           <b-card-text>{{ mesg.content }}</b-card-text>
-          <div style="text-align:left; color: #adadad;">
+          <div style="text-align:left; color: #efefef;">
               {{ mesg.time }}
           </div>
         </b-card>
@@ -47,9 +47,9 @@ export default {
   data() {
     return {
       adminMsgs: [
-        { title: "Title", content: "Content", time: "Time", priority: 1, id: 1 },
-        { title: "Title", content: "Content", time: "Time", priority: 2, id: 2 },
-        { title: "Title", content: "Content", time: "Time", priority: 3, id: 3 },
+        { title: "اطلاعیه ۱", content: "دوستان تابع رباط مسابقه تغییر یافته است.", time: "10:59:11", priority: 1, id: 1 },
+        { title: "زمان پایان", content: "۲ ساعت تا پایان مسابقه زمان باقی است", time: "10:00:00", priority: 2, id: 2 },
+        { title: "شروع مسالقه", content: "خوش آمدید به مسابقه رینگ.", time: "9:01:45", priority: 3, id: 3 },
       ],
     };
   },
