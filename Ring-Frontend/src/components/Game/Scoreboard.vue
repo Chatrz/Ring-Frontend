@@ -15,10 +15,10 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
-    <h2 class="text-center mt-3"> 
+    <h2 class="text-center mt-3">
       {{ "جدول امتیازهای مسابقه " }}
     </h2>
-    <div class="text-center mb-5" style="color: #adadad;">
+    <div class="text-center mb-5" style="color: #adadad">
       {{ " توجه کنید که جدول هر ۵ دقیقه به روزرسانی می شود " }}
     </div>
     <b-table
@@ -46,7 +46,7 @@
 export default {
   /**
    * Showing the game score board to the users.
-   * 
+   *
    */
   name: "Scoreboard",
   data() {
@@ -64,10 +64,11 @@ export default {
     };
   },
   methods: {
-    updateTable() { // This method sends HTTP request to server to update the table each 5 minutes
+    updateTable() {
+      // This method sends HTTP request to server to update the table each 5 minutes
       console.log("Update");
-    }
-  }
+    },
+  },
 };
 </script>
 

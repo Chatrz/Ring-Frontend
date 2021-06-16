@@ -47,8 +47,8 @@
           class="m-auto w-75 mt-3 mb-2"
         >
           <b-card-text>{{ mesg.content }}</b-card-text>
-          <div style="text-align:left; color: #efefef;">
-              {{ mesg.time }}
+          <div style="text-align: left; color: #efefef">
+            {{ mesg.time }}
           </div>
         </b-card>
       </b-card-group>
@@ -59,23 +59,42 @@
 <script>
 export default {
   /**
-   * In the mail panel we show the user information about 
+   * In the mail panel we show the user information about
    * its team, remaining time of the competition, and we
    * show the messages from admin.
-   * 
+   *
    */
   name: "MainPanel",
   data() {
     return {
       adminMsgs: [
-        { title: "اطلاعیه ۱", content: "دوستان تابع رباط مسابقه تغییر یافته است.", time: "10:59:11", priority: 1, id: 1 },
-        { title: "زمان پایان", content: "۲ ساعت تا پایان مسابقه زمان باقی است", time: "10:00:00", priority: 2, id: 2 },
-        { title: "شروع مسالقه", content: "خوش آمدید به مسابقه رینگ.", time: "9:01:45", priority: 3, id: 3 },
+        {
+          title: "اطلاعیه ۱",
+          content: "دوستان تابع رباط مسابقه تغییر یافته است.",
+          time: "10:59:11",
+          priority: 1,
+          id: 1,
+        },
+        {
+          title: "زمان پایان",
+          content: "۲ ساعت تا پایان مسابقه زمان باقی است",
+          time: "10:00:00",
+          priority: 2,
+          id: 2,
+        },
+        {
+          title: "شروع مسالقه",
+          content: "خوش آمدید به مسابقه رینگ.",
+          time: "9:01:45",
+          priority: 3,
+          id: 3,
+        },
       ],
     };
   },
   methods: {
-    getPriorityClass(number) { // Get piority class
+    getPriorityClass(number) {
+      // Get piority class
       switch (number) {
         case 1:
           return "danger";
@@ -85,9 +104,10 @@ export default {
           return "info";
       }
     },
-    getMessage() { // This method checks if message is sent from server or not
+    getMessage() {
+      // This method checks if message is sent from server or not
       console.log("Got message");
-    }
+    },
   },
 };
 </script>

@@ -63,25 +63,33 @@
       </b-carousel-slide>
     </b-carousel>
 
-    <button class="btn subbtn" type="button" @click="selectThisLand">{{ "همین زمین را انتخاب کن" }}</button>
+    <button class="btn subbtn" type="button" @click="selectThisLand">
+      {{ "همین زمین را انتخاب کن" }}
+    </button>
   </div>
 </template>
 
 <script>
 export default {
+  /**
+   * The land component allows the temas to choose their land
+   * of factory.
+   * Using a slider to show them the lands.
+   * 
+   */
   name: "Land",
   data() {
     return {
       slide: 0,
-      selected: null
+      selected: null,
     };
   },
   methods: {
-    selectThisLand() {
+    selectThisLand() { // This method sends an HTTP request for selecting a land
       this.selected = this.slide;
-      alert("Land " + this.selected + " choosed.")
-    }
-  }
+      alert("Land " + this.selected + " choosed.");
+    },
+  },
 };
 </script>
 

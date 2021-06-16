@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable class="bg-dark"> <!-- Dashboard navigation bar -->
+    <b-navbar toggleable class="bg-dark">
+      <!-- Dashboard navigation bar -->
       <b-navbar-brand href="#" @click="setIndex(0)">
         <img
           src="../../assets/Logo.svg"
@@ -10,10 +11,10 @@
       </b-navbar-brand>
       <b-nav>
         <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-          ><span class="default">خط تولید</span></b-nav-item
+          ><span class="default">زمین</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)"
-          ><span class="default">زمین</span></b-nav-item
+          ><span class="default">خط تولید</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)"
           ><span class="default">بازار</span></b-nav-item
@@ -50,10 +51,11 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="m-0 p-0 w-100" style="height: 100vh"> <!-- Components are here -->
+    <div class="m-0 p-0 w-100" style="height: 100vh">
+      <!-- Components are here -->
       <main-panel class="pb-5" v-show="idx == 0" />
-      <factory class="pb-5" v-show="idx == 1" />
-      <land class="pb-5" v-show="idx == 2" />
+      <land class="pb-5" v-show="idx == 1" />
+      <factory class="pb-5" v-show="idx == 2" />
       <market class="pb-5" v-show="idx == 3" />
       <scoreboard class="pb-5" v-show="idx == 4" />
     </div>
@@ -72,7 +74,7 @@ export default {
    * it has access to the facotry, market, land and score board.
    * It also has a main panel that shows the users team
    * information and messages from admin.
-   * 
+   *
    */
   components: { Factory, Land, Market, Scoreboard, MainPanel },
   name: "Dashboard",
@@ -84,22 +86,26 @@ export default {
     };
   },
   methods: {
-    setIndex(index) { // A method for navigation index
+    setIndex(index) {
+      // A method for navigation index
       this.idx = index;
     },
-    linkClass(index) { // Navigation layours
+    linkClass(index) {
+      // Navigation layours
       if (this.idx === index) {
         return ["selectedLink", "navlink"];
       } else {
         return ["normalLink", "navlink"];
       }
     },
-    logout() { // Logging out method
+    logout() {
+      // Logging out method
       this.$router.push("/");
     },
-    getTime() { // This method sends an HTTP request to get the game time
+    getTime() {
+      // This method sends an HTTP request to get the game time
       console.log("Got time");
-    }
+    },
   },
 };
 </script>
