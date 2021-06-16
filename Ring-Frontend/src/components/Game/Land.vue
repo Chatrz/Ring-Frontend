@@ -1,10 +1,26 @@
 <template>
   <div class="text-center">
-    <h2 class="mt-4 mb-5">{{ "Choose your land :" }}</h2>
+    <b-icon
+      icon="grid1x2-fill"
+      font-scale="5"
+      style="
+        color: #f07c00ff;
+        width: 800px;
+        height: 800px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        left: 50px;
+        top: 50px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
+    <h2 class="mt-5 mb-5">{{ "زمین کارخانه خود را انتخاب کنید :" }}</h2>
     <b-carousel
       id="landSlider"
       v-model="slide"
-      class="mb-5 m-auto w-75"
+      class="mb-5 m-auto w-75 img-thumbnail"
+      :interval="8000"
       controls
       indicators
       fade
@@ -46,6 +62,8 @@
         </p>
       </b-carousel-slide>
     </b-carousel>
+
+    <button class="btn btn-primary" type="button" @click="selectThisLand">{{ "همین زمین را انتخاب کن" }}</button>
   </div>
 </template>
 
@@ -55,8 +73,15 @@ export default {
   data() {
     return {
       slide: 0,
+      selected: null
     };
   },
+  methods: {
+    selectThisLand() {
+      this.selected = this.slide;
+      alert("Land " + this.selected + " choosed.")
+    }
+  }
 };
 </script>
 
