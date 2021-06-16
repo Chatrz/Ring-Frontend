@@ -44,6 +44,8 @@
 export default {
   /**
    * Competetion timer setup.
+   * This component updates the timer and allows the admin to stop
+   * the game or set a new time.
    * 
    */
   name: "Timer",
@@ -60,7 +62,7 @@ export default {
     };
   },
   methods: {
-    countDownTimer() {
+    countDownTimer() { // Timer
       if (this.second > 0 || this.minute > 0 || this.hour > 0) {
         this.timeFunction = setTimeout(() => {
           if (!this.pause) {
@@ -70,7 +72,7 @@ export default {
         }, 1000);
       }
     },
-    tikTok() {
+    tikTok() { // Counter
       if (this.second == 0) {
         if (this.minute == 0) {
           this.hour -= 1;
@@ -83,7 +85,7 @@ export default {
         this.second -= 1;
       }
     },
-    updateChange() {
+    updateChange() { // Update the new set clock
       this.pause = true;
       let hour = parseInt(this.inputH);
       let minute = parseInt(this.inputM);
@@ -93,7 +95,7 @@ export default {
       this.second = 59;
       this.pause = false;
     },
-    stopGame() {
+    stopGame() { // Pause the game
       clearTimeout(this.timeFunction);
       this.pause = !this.pause;
       this.countDownTimer();

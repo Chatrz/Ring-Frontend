@@ -34,18 +34,22 @@ export default {
           key: "email",
           label: "ایمیل کاربر",
         },
+        {
+          key: "status",
+          lablel: "وضعیت اتصال"
+        }
       ],
       users: [
-        { team: "Alpha", name: "Ali", email: "Mai1l" },
-        { team: "Alpha2", name: "Ali2", email: "Mail2" },
-        { team: "Alpha2", name: "Ali1", email: "Mail3" },
-        { team: "Alpha", name: "Ali1", email: "Mail" },
+        { team: "Alpha", name: "Ali", email: "Mai1l", status: "Online" },
+        { team: "Alpha2", name: "Ali2", email: "Mail2", status: "Offline" },
+        { team: "Alpha2", name: "Ali1", email: "Mail3", status: "Online" },
+        { team: "Alpha", name: "Ali1", email: "Mail", status: "Online" },
       ],
       teams: ["Alpha", "Alpha2"],
     };
   },
   methods: {
-    getTeamMembers(team_name) {
+    getTeamMembers(team_name) { // Sends a GET HTTP request to get the users.
       return this.users.filter(function (e) {
         return e.team == team_name;
       });

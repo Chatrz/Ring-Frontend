@@ -39,6 +39,7 @@
 export default {
   /**
    * Competetion score table.
+   * Admin can change the teams score and update their points.
    * 
    */
   name: "ScoreTable",
@@ -51,14 +52,14 @@ export default {
       ],
     };
   },
-  created() {
+  created() { // We need to handle this part in server side
     this.teams.forEach((element) => {
       element["update"] = false;
       element["new_score"] = element["t_score"];
     });
   },
   methods: {
-    change() {
+    change() { // Sends and HTTP request to update the score table
       this.teams.forEach((element) => {
         if (element["update"]) {
           element["t_score"] = parseInt(element["new_score"]);
@@ -66,7 +67,7 @@ export default {
         }
       });
     },
-    undo() {
+    undo() { // This will remove everything
       this.teams.forEach((element) => {
         element["new_score"] = element["t_score"];
         element["update"] = false;

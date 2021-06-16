@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable class="bg-dark">
+    <b-navbar toggleable class="bg-dark"> <!-- Dashboard navigation bar -->
       <b-navbar-brand href="#" @click="setIndex(0)">
         <img
           src="../../assets/Logo.svg"
@@ -37,11 +37,10 @@
       </b-navbar-toggle>
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item
-            style="text-align: left; padding-left: 10px;"
-            href="#"
-          >
-            <span style="color: #ffffff;">{{ "نام کاربری" + " | " + "ایمیل" }}</span>
+          <b-nav-item style="text-align: left; padding-left: 10px" href="#">
+            <span style="color: #ffffff">{{
+              "نام کاربری" + " | " + "ایمیل"
+            }}</span>
           </b-nav-item>
           <b-nav-item style="text-align: left; padding-left: 10px" href="#">
             <button class="btn btn-danger text-light" @click="logout">
@@ -51,7 +50,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="m-0 p-0 w-100" style="height: 100vh">
+    <div class="m-0 p-0 w-100" style="height: 100vh"> <!-- Components are here -->
       <main-panel class="pb-5" v-show="idx == 0" />
       <factory class="pb-5" v-show="idx == 1" />
       <land class="pb-5" v-show="idx == 2" />
@@ -64,10 +63,17 @@
 <script>
 import Factory from "./Factory.vue";
 import Land from "./Land.vue";
-import MainPanel from './MainPanel.vue';
+import MainPanel from "./MainPanel.vue";
 import Market from "./Market.vue";
 import Scoreboard from "./Scoreboard.vue";
 export default {
+  /**
+   * This is the user dashboard component where
+   * it has access to the facotry, market, land and score board.
+   * It also has a main panel that shows the users team
+   * information and messages from admin.
+   * 
+   */
   components: { Factory, Land, Market, Scoreboard, MainPanel },
   name: "Dashboard",
   data() {
@@ -78,19 +84,22 @@ export default {
     };
   },
   methods: {
-    setIndex(index) {
+    setIndex(index) { // A method for navigation index
       this.idx = index;
     },
-    linkClass(index) {
+    linkClass(index) { // Navigation layours
       if (this.idx === index) {
         return ["selectedLink", "navlink"];
       } else {
         return ["normalLink", "navlink"];
       }
     },
-    logout() {
+    logout() { // Logging out method
       this.$router.push("/");
     },
+    getTime() { // This method sends an HTTP request to get the game time
+      console.log("Got time");
+    }
   },
 };
 </script>

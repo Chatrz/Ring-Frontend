@@ -56,15 +56,15 @@ export default {
     };
   },
   methods: {
-    sendFunction() {
+    sendFunction() { // This method sends the new function to the server
       this.old_function = this.new_function;
       this.toggle();
       this.clear();
     },
-    clear() {
+    clear() { // This method clears the input field
       this.new_function = "";
     },
-    toggle() {
+    toggle() { // This method is for button class toggling
       this.readyToSend = !this.readyToSend;
     },
   },

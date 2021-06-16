@@ -43,6 +43,12 @@
 
 <script>
 export default {
+  /**
+   * In the mail panel we show the user information about 
+   * its team, remaining time of the competition, and we
+   * show the messages from admin.
+   * 
+   */
   name: "MainPanel",
   data() {
     return {
@@ -54,7 +60,7 @@ export default {
     };
   },
   methods: {
-    getPriorityClass(number) {
+    getPriorityClass(number) { // Get piority class
       switch (number) {
         case 1:
           return "danger";
@@ -64,6 +70,9 @@ export default {
           return "info";
       }
     },
+    getMessage() { // This method checks if message is sent from server or not
+      console.log("Got message");
+    }
   },
 };
 </script>

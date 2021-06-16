@@ -67,7 +67,7 @@ export default {
     };
   },
   methods: {
-    send() {
+    send() { // This method first validates the information then sends the message
       if (this.adminMessage == "") 
       {
         alert("به دلیل خالی بودن فیلد چیزی ارسال نشد.");
@@ -78,8 +78,9 @@ export default {
         this.title = "پیام از طرف ادمین";
       }
       console.log(this.adminMessage);
+      alert("‍‍پیام با موفقیت ارسال شد.");
     },
-    clear() {
+    clear() { // This method clears the input values
       this.title = "";
       this.adminMessage = "";
     },

@@ -1,5 +1,6 @@
 <template>
   <div class="h-100">
+    <!-- Background -->
     <b-icon
       icon="gear-fill"
       animation="spin"
@@ -16,6 +17,7 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
+    <!-- Part of background icons -->
     <b-icon
       icon="gear-fill"
       animation="spin"
@@ -48,6 +50,7 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
+    <!-- Main container of login panel -->
     <div class="container h-80">
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
@@ -106,6 +109,7 @@
               />
             </form>
             <div class="mt-3" v-if="has_errors">
+              <!-- Login errors handling -->
               <b-alert
                 v-for="error in errors"
                 :key="error"
@@ -126,6 +130,8 @@
 export default {
   /**
    * Login page component.
+   * This components gets username and password and
+   * then redirects user to neigher admin panel or user dashboard.
    *
    */
   name: "Login",
@@ -139,9 +145,11 @@ export default {
   },
   methods: {
     sendLogInForm() {
+      // This method sends login HTTP request to server
       console.log(this.username + " " + this.password);
     },
     validateForm() {
+      // This method checks the inputs validations
       this.errors = [];
       this.has_errors = false;
       if (this.username == "") this.errors.push("لطفا نام کاربری را وارد کنید");
@@ -157,6 +165,7 @@ export default {
   height: 80vh;
 }
 
+/* Style classes for our submit buttons */
 .subbtn {
   background: #f07c00ff;
   color: #ffffff;
@@ -171,6 +180,7 @@ export default {
 </style>
 
 <style scoped>
+/* Input style classes */
 input:not([type="submit"]) {
   margin-top: 0px !important;
   margin-right: 5px !important;

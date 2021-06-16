@@ -29,6 +29,10 @@
 
 <script>
 export default {
+  /**
+   * Showing the game score board to the users.
+   * 
+   */
   name: "Scoreboard",
   data() {
     return {
@@ -44,6 +48,11 @@ export default {
       ],
     };
   },
+  methods: {
+    updateTable() { // This method sends HTTP request to server to update the table each 5 minutes
+      console.log("Update");
+    }
+  }
 };
 </script>
 

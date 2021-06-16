@@ -1,5 +1,6 @@
 <template>
   <div class="h-100">
+    <!-- Background -->
     <b-icon
       icon="gear-fill"
       animation="spin"
@@ -16,6 +17,7 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
+    <!-- Part of background icons -->
     <b-icon
       icon="gear-fill"
       animation="spin"
@@ -48,6 +50,7 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
+    <!-- Main container of register panel -->
     <div class="container h-80">
       <div class="row align-items-center h-100">
         <div class="col-3 mx-auto">
@@ -140,6 +143,7 @@
               />
             </form>
             <div class="mt-3" v-if="has_errors">
+              <!-- Register errors handling -->
               <b-alert
                 v-for="error in errors"
                 :key="error"
@@ -160,6 +164,8 @@
 export default {
   /**
    * Register page component.
+   * This component gets user name, email, password, confirm password and then
+   * sends the request to server.
    *
    */
   name: "Register",
@@ -169,20 +175,22 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
-      is_admin: null,
       has_errors: false,
       errors: [],
     };
   },
   methods: {
     sendRegisterForm() {
+      // This method sends the register HTTP request to server
       console.log(this.name + " " + this.email);
     },
     validateEmail(email) {
+      // This method checks the email validation
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     },
     validateForm() {
+      // This method checks the input data validations
       this.errors = [];
       this.has_errors = false;
       if (this.name == "") this.errors.push("لطفا نام کاربری را وارد کنید");
@@ -198,14 +206,8 @@ export default {
 };
 </script>
 
-
-<style>
-.blue-login-background {
-  background-color: #cccccc;
-}
-</style>
-
 <style scoped>
+/* Input style classes */
 input:not([type="submit"]) {
   margin-top: 0px !important;
   margin-right: 5px !important;
