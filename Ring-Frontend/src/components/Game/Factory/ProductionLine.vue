@@ -1,6 +1,10 @@
 <template>
   <div>
+    <h2 class="text-center mt-4 mb-4">{{ "Status: On / Off" }}</h2>
     <machine />
+    <div class="text-center mt-4 mb-4"> 
+      {{ "Product information" }}
+    </div>
   </div>
 </template>
 
