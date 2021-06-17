@@ -1,29 +1,29 @@
 <template>
   <div>
     <b-nav class="pt-3 pb-3 bg-secondary d-flex justify-content-evenly">
-        <b-nav-item href="#" @click="setIndex(0)" :class="linkClass(0)"
-          ><span class="default p-3">بخش خرید</span></b-nav-item
-        >
-        <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-          ><span class="default p-3">بخش فروش</span></b-nav-item
-        >
-      </b-nav>
-      <div class="m-0 p-0 w-100" style="height: 100vh">
-        <purchase-section class="pb-5" v-show="idx == 0" />
-        <sales-department class="pb-5" v-show="idx == 1" />
-      </div>
+      <b-nav-item href="#" @click="setIndex(0)" :class="linkClass(0)"
+        ><span class="default p-3">بخش خرید</span></b-nav-item
+      >
+      <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
+        ><span class="default p-3">بخش فروش</span></b-nav-item
+      >
+    </b-nav>
+    <div class="m-0 p-0 w-100" style="height: 100vh">
+      <purchase-section class="pb-5" v-show="idx == 0" />
+      <sales-department class="pb-5" v-show="idx == 1" />
+    </div>
   </div>
 </template>
 
 <script>
-import PurchaseSection from './PurchaseSection.vue';
-import SalesDepartment from './SalesDepartment.vue';
+import PurchaseSection from "./PurchaseSection.vue";
+import SalesDepartment from "./SalesDepartment.vue";
 export default {
   components: { PurchaseSection, SalesDepartment },
   name: "Market",
   data() {
     return {
-      idx: 0
+      idx: 0,
     };
   },
   methods: {
