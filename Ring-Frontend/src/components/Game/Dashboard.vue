@@ -63,10 +63,10 @@
 </template>
 
 <script>
-import Factory from "./Factory.vue";
+import Factory from "./Factory/Factory";
 import Land from "./Land.vue";
 import MainPanel from "./MainPanel.vue";
-import Market from "./Market.vue";
+import Market from "./Market/Market.vue";
 import Scoreboard from "./Scoreboard.vue";
 export default {
   /**
