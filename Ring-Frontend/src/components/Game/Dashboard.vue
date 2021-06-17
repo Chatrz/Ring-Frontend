@@ -31,7 +31,7 @@
         <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)">
           <span class="default">
             {{ "جدول امتیازها" }}
-            <b-icon icon="award-fill" class="inline-icon"></b-icon>
+            <b-icon icon="trophy-fill" class="inline-icon"></b-icon>
           </span>
         </b-nav-item>
         <b-nav-item class="navlink default-clk">

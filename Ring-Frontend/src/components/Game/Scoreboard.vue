@@ -1,7 +1,7 @@
 <template>
   <div class="pt-5">
     <b-icon
-      icon="award-fill"
+      icon="trophy-fill"
       font-scale="5"
       style="
         color: #f07c00ff;
