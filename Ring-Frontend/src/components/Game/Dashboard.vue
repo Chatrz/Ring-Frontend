@@ -14,7 +14,7 @@
           ><span class="default">زمین</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)"
-          ><span class="default">خط تولید</span></b-nav-item
+          ><span class="default">کارخانه</span></b-nav-item
         >
         <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)"
           ><span class="default">بازار</span></b-nav-item

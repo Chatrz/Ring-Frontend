@@ -10,7 +10,7 @@
         overflow: hidden;
         z-index: -1;
         position: fixed;
-        left: 50px;
+        right: 50px;
         top: 50px;
         text-overflow: ellipsis;
       "
