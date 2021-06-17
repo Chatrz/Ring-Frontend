@@ -1,12 +1,18 @@
 <template>
   <div>
     <b-nav class="pt-3 pb-3 bg-secondary d-flex justify-content-evenly">
-      <b-nav-item href="#" @click="setIndex(0)" :class="linkClass(0)"
-        ><span class="default p-3">بخش خرید</span></b-nav-item
-      >
-      <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-        ><span class="default p-3">بخش فروش</span></b-nav-item
-      >
+      <b-nav-item href="#" @click="setIndex(0)" :class="linkClass(0)">
+        <span class="default p-3">
+          {{ "بخش خرید" }}
+          <b-icon icon="cart3" class="inline-icon"></b-icon>
+        </span>
+      </b-nav-item>
+      <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)">
+        <span class="default p-3">
+          {{ "بخش فروش" }}
+          <b-icon icon="gem" class="inline-icon"></b-icon>
+        </span>
+      </b-nav-item>
     </b-nav>
     <div class="m-0 p-0 w-100" style="height: 100vh">
       <purchase-section class="pb-5" v-show="idx == 0" />
@@ -76,5 +82,11 @@ export default {
   border: 0px solid black;
   border-radius: 5px;
   margin: 0 5px;
+}
+
+.inline-icon {
+  width: 20px;
+  height: 25px;
+  margin-right: 10px;
 }
 </style>

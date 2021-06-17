@@ -10,21 +10,33 @@
         />
       </b-navbar-brand>
       <b-nav>
-        <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)"
-          ><span class="default">زمین</span></b-nav-item
-        >
-        <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)"
-          ><span class="default">کارخانه</span></b-nav-item
-        >
-        <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)"
-          ><span class="default">بازار</span></b-nav-item
-        >
-        <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)"
-          ><span class="default">جدول امتیازها</span></b-nav-item
-        >
-        <b-nav-item class="navlink default-clk"
-          ><span class="default-clk">{{ "02:59:59" }}</span></b-nav-item
-        >
+        <b-nav-item href="#" @click="setIndex(1)" :class="linkClass(1)">
+          <span class="default">
+            {{ "زمین" }}
+            <b-icon icon="geo-alt" class="inline-icon"></b-icon>
+          </span>
+        </b-nav-item>
+        <b-nav-item href="#" @click="setIndex(2)" :class="linkClass(2)">
+          <span class="default">
+            {{ "کارخانه" }}
+            <b-icon icon="gear-fill" class="inline-icon"></b-icon>
+          </span>
+        </b-nav-item>
+        <b-nav-item href="#" @click="setIndex(3)" :class="linkClass(3)">
+          <span class="default">
+            {{ "بازار" }}
+            <b-icon icon="bag-dash-fill" class="inline-icon"></b-icon>
+          </span>
+        </b-nav-item>
+        <b-nav-item href="#" @click="setIndex(4)" :class="linkClass(4)">
+          <span class="default">
+            {{ "جدول امتیازها" }}
+            <b-icon icon="award-fill" class="inline-icon"></b-icon>
+          </span>
+        </b-nav-item>
+        <b-nav-item class="navlink default-clk">
+          <span class="default-clk">{{ "02:59:59" }}</span>
+        </b-nav-item>
       </b-nav>
       <b-navbar-toggle
         target="navbar-toggle-collapse"
@@ -45,7 +57,8 @@
           </b-nav-item>
           <b-nav-item style="text-align: left; padding-left: 10px" href="#">
             <button class="btn btn-danger text-light" @click="logout">
-              خروج
+              {{ "خروج" }}
+              <b-icon icon="power" class="inline-icon"></b-icon>
             </button>
           </b-nav-item>
         </b-navbar-nav>
@@ -143,5 +156,11 @@ export default {
   border: 0px solid black;
   border-radius: 5px;
   margin: 0 5px;
+}
+
+.inline-icon {
+  width: 20px;
+  height: 25px;
+  margin-right: 10px;
 }
 </style>

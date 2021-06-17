@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <b-icon
-      icon="grid1x2-fill"
+      icon="geo-alt"
       font-scale="5"
       style="
         color: #494949;
