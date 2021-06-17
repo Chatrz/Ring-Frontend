@@ -19,7 +19,7 @@
     ></b-icon>
     <!-- Part of background icons -->
     <b-icon
-      icon="gear-fill"
+      icon="gear-wide"
       animation="spin"
       font-scale="3"
       style="
@@ -35,8 +35,8 @@
       "
     ></b-icon>
     <b-icon
-      icon="gear-fill"
-      animation="spin"
+      icon="gear-wide-connected"
+      animation="spin-reverse"
       font-scale="3"
       style="
         color: #f07c00ff;

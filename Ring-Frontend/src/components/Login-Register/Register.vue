@@ -2,8 +2,8 @@
   <div class="h-100">
     <!-- Background -->
     <b-icon
-      icon="gear-fill"
-      animation="spin"
+      icon="gear-wide-connected"
+      animation="spin-reverse"
       font-scale="5"
       style="
         color: #adadad;
@@ -20,7 +20,7 @@
     <!-- Part of background icons -->
     <b-icon
       icon="gear-fill"
-      animation="spin"
+      animation="spin-reverse"
       font-scale="3"
       style="
         color: #000000;
@@ -35,7 +35,7 @@
       "
     ></b-icon>
     <b-icon
-      icon="gear-fill"
+      icon="gear"
       animation="spin"
       font-scale="3"
       style="
