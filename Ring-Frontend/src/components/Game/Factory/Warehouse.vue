@@ -1,41 +1,53 @@
 <template>
   <div>
-    <h2 class="text-center mt-5 mb-5">
-      {{ "" }}
-    </h2>
-    <div class="m-auto w-50 mb-5 mt-3 rounded bg-light" style="padding: 20px">
-      <div>
-        {{ "Capacity : " + getWareInfo.capacity }}
+    <h1 class="text-center mt-5 mb-5">
+      {{ "انبار" }}
+    </h1>
+    <div class="m-auto w-50 mb-5 mt-3 rounded bg-light" style="padding: 20px; height: 350px;">
+      <h3 class="mb-5">
+        {{ "وضعیت فعلی انبار شما :" }}
+      </h3>
+      <div class="m-auto mb-2 w-50">
+        <div class="bg-success text-light rounded w-100" style="padding:15px;">{{ "ظرفیت انبار :  " + getWareInfo.capacity }}</div>
       </div>
-      <div>
-        {{ "Current value : " + getWareInfo.value + " $" }}
+      <div class="m-auto mb-2 w-50">
+        <div class="bg-success text-light rounded w-100" style="padding:15px;">{{ "قیمت فعلی انبار :  " + getWareInfo.value + " $" }}</div>
       </div>
-      <div>
-        {{ "Warehouse status : " + current_capacity }}
+      <div class=" m-auto w-50">
+        <div class="bg-info text-light rounded w-100" style="padding:15px;">{{ "کالاهای موجود در انبار :  " + current_capacity }}</div>
       </div>
-      <div v-show="current_capacity == getWareInfo.capacity">
-        {{ "Your warehouse is full, please sell your products." }}
+      <div v-show="current_capacity == getWareInfo.capacity" class="mt-3 mb-2">
+        {{ "ظرفیت انبار شما تکمیل شده است. در صورت اقدام نکردن برای ارتقای انبار یا خالی نکردن انبار کالاهای شما توسط ادمین با قیمت عادی ( بدون سود ) خریداری خواهند شد." }}
       </div>
     </div>
     <div class="m-auto w-50 mt-5 rounded bg-light" style="padding: 20px">
       <h4>
-        {{ "Upgrade warehouse : " }}
+        {{ "ارتقای انبار :" }}
       </h4>
-      <div v-for="plan in plans" :key="plan.id">
-        <span>{{
-          "Capacity : " + plan.capacity + " Payment : " + plan.value
-        }}</span>
+      <div v-for="plan in plans" :key="plan.id" style="height:50px;">
+        <span>
+          {{ "ظرفیت :  " }}
+          <b-badge variant="danger" style="color: #ffffff; background: #dc3545; padding: 6px;">
+            {{ plan.capacity }}
+          </b-badge>
+          {{ "قیمت :  " }}
+          <b-badge variant="danger" style="color: #ffffff; background: #dc3545; padding: 6px; margin-right: 5px;">
+            {{ plan.value }}
+          </b-badge>
+        </span>
         <button
           type="button"
           :class="[
             'btn',
             'btn-primary',
             'mr-3',
+            'float-left',
             { disabled: current_plan >= plan.id - 1 },
           ]"
           @click="increaseCapacity(plan.id - 1)"
+          style="float: left;"
         >
-          {{ "Upgrage to this plan" }}
+          {{ "به همین وضع ارتقاع بده." }}
         </button>
       </div>
     </div>
@@ -47,7 +59,7 @@ export default {
   name: "Warehouse",
   data() {
     return {
-      current_capacity: 10,
+      current_capacity: 25,
       current_plan: -1,
       plans: [
         { id: 1, capacity: 25, value: 200 },
@@ -66,9 +78,8 @@ export default {
   },
   computed: {
     getWareInfo() {
-      if (this.current_plan == -1)
-      {
-        return {id: -1, capacity: 0, value: 0}
+      if (this.current_plan == -1) {
+        return { id: -1, capacity: 0, value: 0 };
       }
       return this.plans[this.current_plan];
     },
