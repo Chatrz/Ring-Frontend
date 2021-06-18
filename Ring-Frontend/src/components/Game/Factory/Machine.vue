@@ -27,7 +27,7 @@
     <div class="d-flex align-items-center">
       <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 1"></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
-      <div class="gray-box rounded" v-show="index == 1"></div>
+      <div class="gray-box rounded background-style-1" v-show="index == 1"></div>
       <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 1"></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
     </div>
@@ -49,7 +49,7 @@
     <div class="d-flex align-items-center">
       <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 2"></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
-      <div class="gray-box rounded-circle" v-show="index == 2"></div>
+      <div class="gray-box rounded-circle background-style-1" v-show="index == 2"></div>
       <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 2"></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
     </div>
@@ -75,7 +75,7 @@
         v-if="active && index == 3"
       ></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
-      <div class="gray-box rounded-circle" v-show="index == 3"></div>
+      <div class="gray-box rounded-circle background-style-2" v-show="index == 3"></div>
     </div>
   </div>
 </template>
@@ -113,5 +113,13 @@ export default {
   background: gray;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.background-style-2 {
+  background: gold;
+}
+
+.background-style-1 {
+  background: silver;
 }
 </style>
