@@ -18,13 +18,13 @@
         </div>
         <div class="d-flex justify-content-evenly" style="flex-grow: 1; flex-basis: 0;">
           <button type="button" class="btn btn-danger" @click="decrease(item.key, item.value)">
-            {{ "-" }}
+            <b-icon icon="caret-right-fill" scale="1"></b-icon>
           </button>
           <span style="font-size: 18px;">
             {{ getItemNumber(item.key) }}
           </span>
           <button type="button" class="btn btn-danger" @click="increase(item.key, item.value)">
-            {{ "+" }}
+            <b-icon icon="caret-left-fill" scale="1"></b-icon>
           </button>
         </div>
       </div>
@@ -75,9 +75,16 @@ export default {
     },
     confirmPuurchase() {
       alert("Items bught.");
+      this.resetFactor();
     },
     getItemNumber(key) {
       return this.purchase[key];
+    },
+    resetFactor() {
+      this.items.forEach(element => {
+        this.purchase[element.key] = 0;
+        this.total = 0;
+      });
     }
   },
 };
