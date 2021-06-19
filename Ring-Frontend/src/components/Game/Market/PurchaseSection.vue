@@ -1,5 +1,20 @@
 <template>
   <div>
+    <b-icon
+      icon="cart3"
+      font-scale="5"
+      style="
+        color: #adadad;
+        width: 900px;
+        height: 800px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        left: 40px;
+        top: 40px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
     <h2 class="text-center mt-5 mb-5">
       {{ "بخش خرید کالا" }}
     </h2>
