@@ -51,6 +51,12 @@
 
 <script>
 export default {
+  /**
+   * Sales department is the panel 
+   * that our user can sell its products to
+   * the game robot.
+   * 
+   */
   name: "SalesDepartment",
   data() {
     return {
@@ -62,7 +68,7 @@ export default {
     };
   },
   methods: {
-    sellProduct(key) {
+    sellProduct(key) { // Sell a procduct in the Warehouse
       this.items.forEach(element => {
         if (element.key == key) {
           if (element.number > 0)

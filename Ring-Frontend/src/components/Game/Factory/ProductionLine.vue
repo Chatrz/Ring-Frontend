@@ -79,6 +79,11 @@
 <script>
 import Machine from "./Machine.vue";
 export default {
+  /**
+   * Represents an animation for creating products.
+   * Also allows the users to control the products attributes.
+   * 
+   */
   components: { Machine },
   name: "ProductionLine",
   data() {

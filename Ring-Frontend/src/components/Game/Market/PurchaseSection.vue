@@ -75,6 +75,12 @@
 
 <script>
 export default {
+  /**
+   * Purchase Section is used to show a panel
+   * so that the user could by the stuff needed
+   * for the factory.
+   * 
+   */
   name: "PurchaseSection",
   data() {
     return {
@@ -90,29 +96,29 @@ export default {
     };
   },
   created() {
-    this.items.forEach((element) => {
+    this.items.forEach((element) => { // Creating an empty factor
       this.purchase[element.key] = 0;
     });
   },
   methods: {
-    increase(key, value) {
+    increase(key, value) { // Add something to our shopping card
       this.purchase[key]++;
       this.total += value;
     },
-    decrease(key, value) {
+    decrease(key, value) { // Remove something from our shopping card
       if (this.purchase[key] > 0) {
         this.purchase[key]--;
         this.total -= value;
       }
     },
-    confirmPuurchase() {
+    confirmPuurchase() { // Confirm the buying operation
       alert("Items bught.");
       this.resetFactor();
     },
-    getItemNumber(key) {
+    getItemNumber(key) { // Get an item number in our resite 
       return this.purchase[key];
     },
-    resetFactor() {
+    resetFactor() { // Resetting the buying operation
       this.items.forEach((element) => {
         this.purchase[element.key] = 0;
         this.total = 0;

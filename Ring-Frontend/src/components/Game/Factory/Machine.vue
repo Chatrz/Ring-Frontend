@@ -82,6 +82,11 @@
 
 <script>
 export default {
+  /**
+   * Machine is the animation component that creates
+   * a graphical environment for the product line.
+   * 
+   */
   name: "Machine",
   data() {
     return {
@@ -91,7 +96,7 @@ export default {
     };
   },
   methods: {
-    nextLevel() {
+    nextLevel() { // Changing the levels
       this.index++;
       this.index %= 4;
       setTimeout(() => {

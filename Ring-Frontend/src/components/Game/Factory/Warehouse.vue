@@ -143,6 +143,12 @@
 
 <script>
 export default {
+  /**
+   * Warehouse is the panel that shows the 
+   * status of the team warehouse and allows them
+   * to upgrade the warehouse.
+   * 
+   */
   name: "Warehouse",
   data() {
     return {
@@ -163,18 +169,18 @@ export default {
     };
   },
   methods: {
-    increaseCapacity(indx) {
+    increaseCapacity(indx) { // A method for increasing the capatiy
       this.current_plan = indx;
     },
   },
   computed: {
-    getWareInfo() {
+    getWareInfo() { // Getting the current warehouse status
       if (this.current_plan == -1) {
         return { id: -1, capacity: 0, value: 0 };
       }
       return this.plans[this.current_plan];
     },
-    getNumberOfItems() {
+    getNumberOfItems() { // Get the number of items inside the warehouse
       let total = 0;
       this.items.forEach(element => {
         total += element.number;

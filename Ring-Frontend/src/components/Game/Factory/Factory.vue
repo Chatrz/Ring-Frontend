@@ -25,6 +25,11 @@
 import Warehouse from "./Warehouse.vue";
 import ProductionLine from "./ProductionLine.vue";
 export default {
+  /**
+   * Factory is the panel that represents two 
+   * Product line and Warehouse panels.
+   * 
+   */
   components: { ProductionLine, Warehouse },
   name: "Factory",
   data() {

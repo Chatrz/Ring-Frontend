@@ -25,6 +25,11 @@
 import PurchaseSection from "./PurchaseSection.vue";
 import SalesDepartment from "./SalesDepartment.vue";
 export default {
+  /**
+   * Market is the component that represents two 
+   * selling and buying parts of our game.
+   * 
+   */
   components: { PurchaseSection, SalesDepartment },
   name: "Market",
   data() {
