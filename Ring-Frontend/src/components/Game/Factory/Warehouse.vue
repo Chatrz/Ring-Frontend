@@ -67,13 +67,33 @@
       </div>
       <div class="m-auto w-50">
         <div class="bg-info text-light rounded w-100" style="padding: 15px">
-          {{ "کالاهای موجود در انبار :  " + current_capacity }}
+          {{ "کالاهای موجود در انبار :  " + getNumberOfItems }}
         </div>
       </div>
-      <div v-show="current_capacity == getWareInfo.capacity" class="mt-3 mb-2">
+      <div v-show="getNumberOfItems >= getWareInfo.capacity" class="mt-3 mb-2">
         {{
           "ظرفیت انبار شما تکمیل شده است. در صورت اقدام نکردن برای ارتقای انبار یا خالی نکردن انبار کالاهای شما توسط ادمین با قیمت عادی ( بدون سود ) خریداری خواهند شد."
         }}
+      </div>
+    </div>
+    <div class="m-auto w-50 mt-5 rounded bg-light" style="padding: 20px"> 
+      <h4 class="mb-3">
+        {{ "کالاهای موجود در انبار :" }}
+      </h4>
+      <div v-for="item in items" :key="item.key" class="d-flex justify-content-between align-self-center bg-success text-light rounded m-auto w-75 p-4 mb-1">
+        <div style="flex-grow: 1; flex-basis: 0" class="m-auto">
+          {{ item.label }}
+        </div>
+        <div style="flex-grow: 1; flex-basis: 0" class="text-center w-50 m-auto">
+          <span class="bg-info text-light p-2 rounded"> 
+            {{ "هزینه تمام شده: " + item.value + " $" }}
+          </span>
+        </div>
+        <div style="flex-grow: 1; flex-basis: 0" class="text-center w-50 m-auto">
+          <span class="bg-danger text-light p-2 rounded">  
+          {{ "مانده: " + item.number }}
+          </span>
+        </div>
       </div>
     </div>
     <div class="m-auto w-50 mt-5 rounded bg-light" style="padding: 20px">
@@ -126,7 +146,6 @@ export default {
   name: "Warehouse",
   data() {
     return {
-      current_capacity: 25,
       current_plan: -1,
       plans: [
         { id: 1, capacity: 25, value: 200 },
@@ -135,6 +154,11 @@ export default {
         { id: 4, capacity: 200, value: 1600 },
         { id: 5, capacity: 500, value: 3500 },
         { id: 6, capacity: 1000, value: 7000 },
+      ],
+      items: [
+        { key: "watersaver", label: "لباس شویی کم مصرف", value: 100, number: 10 },
+        { key: "normal", label: "لباس شویی عادی", value: 50, number: 20 },
+        { key: "powerfull", label: "لباس شویی مقاوم", value: 120, number: 0 },
       ],
     };
   },
@@ -150,6 +174,13 @@ export default {
       }
       return this.plans[this.current_plan];
     },
+    getNumberOfItems() {
+      let total = 0;
+      this.items.forEach(element => {
+        total += element.number;
+      });
+      return total;
+    }
   },
 };
 </script>
