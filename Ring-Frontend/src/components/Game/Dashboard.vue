@@ -37,6 +37,14 @@
         <b-nav-item class="navlink default-clk">
           <span class="default-clk">{{ "02:59:59" }}</span>
         </b-nav-item>
+        <b-nav-item :class="dayStatusClass()">
+          <span v-if="isDay" style="color: #000000;">
+            <b-icon icon="sun" scale="1"></b-icon>
+          </span>
+          <span v-else style="color: #ffffff;">
+            <b-icon icon="moon" scale="1"></b-icon>
+          </span>
+        </b-nav-item>
       </b-nav>
       <b-navbar-toggle
         target="navbar-toggle-collapse"
@@ -95,6 +103,7 @@ export default {
     return {
       username: undefined,
       email: undefined,
+      isDay: false,
       idx: 0,
     };
   },
@@ -110,6 +119,9 @@ export default {
       } else {
         return ["normalLink", "navlink"];
       }
+    },
+    dayStatusClass() {
+      return this.isDay ? ['dayStyle', 'navlink'] : ['nightStyle', 'navlink'];
     },
     logout() {
       // Logging out method
@@ -162,5 +174,15 @@ export default {
   width: 20px;
   height: 25px;
   margin-right: 10px;
+}
+
+.dayStyle {
+  color: #000000;
+  background: gold;
+}
+
+.nightStyle {
+  color: #ffffff;
+  background: darkblue;
 }
 </style>
