@@ -1,5 +1,20 @@
 <template>
   <div>
+    <b-icon
+      icon="gem"
+      font-scale="5"
+      style="
+        color: #adadad;
+        width: 900px;
+        height: 800px;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        right: 40px;
+        bottom: 0px;
+        text-overflow: ellipsis;
+      "
+    ></b-icon>
     <h2 class="text-center mt-5 mb-1">
       {{ "بخش فروش محصولات" }}
     </h2>
