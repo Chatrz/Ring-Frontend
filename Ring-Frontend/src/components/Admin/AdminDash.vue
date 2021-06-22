@@ -113,7 +113,7 @@ export default {
 .admin-bg {
   background: #f07c00ff;
   background-image: linear-gradient(to bottom right, #ffffff, #f07c00ff);
-  background-image: url("../../assets/Logo.svg");
+  background-image: url("../../assets/Logo/Logo.svg");
   background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;

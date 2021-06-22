@@ -4,7 +4,7 @@
       <!-- Dashboard navigation bar -->
       <b-navbar-brand href="#" @click="setIndex(0)">
         <img
-          src="../../assets/Logo.svg"
+          src="../../assets/Logo/Logo.svg"
           style="width: 50px; height: 50px"
           class="rounded-circle"
         />
