@@ -56,7 +56,7 @@
         <div class="col-3 mx-auto">
           <div class="text-center">
             <img
-              src="../../assets/Logo.svg"
+              src="../../assets/Logo/Logo.svg"
               style="width: 150px; height: 150px"
               class="rounded-circle"
             />

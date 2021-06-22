@@ -43,11 +43,11 @@
       ></b-icon>
       <b-icon icon="wrench" animation="spin-pulse" font-scale="2"></b-icon>
       <b-icon icon="gear-fill" animation="spin" font-scale="2"></b-icon>
-      <b-icon icon="brush" animation="cylon" font-scale="2"></b-icon>
+      <b-icon icon="hammer" animation="cylon" font-scale="2"></b-icon>
       <b-icon icon="arrow-repeat" animation="spin" font-scale="2"></b-icon>
     </div>
     <div class="d-flex align-items-center">
-      <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 2"></b-icon>
+      <b-icon animation="gear-fill" icon="arrow-left" v-if="active && index == 2"></b-icon>
       <b-icon icon="x-circle" v-else></b-icon>
       <div class="gray-box rounded-circle background-style-1" v-show="index == 2"></div>
       <b-icon animation="cylon" icon="arrow-left" v-if="active && index == 2"></b-icon>
