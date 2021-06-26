@@ -154,19 +154,14 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          let is_admin = response.data.user.is_admin;
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-          localStorage.setItem("jwt", response.data.token);
+          let is_admin = response.data.is_admin; // todo: check if the login user is admin or not
+          localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
           if (localStorage.getItem("jwt") != null) {
             this.$emit("loggedIn");
-            if (this.$route.params.nextUrl != null) {
-              this.$router.push(this.$route.params.nextUrl);
+            if (is_admin == 1) {
+              this.$router.push("/AdminDash");
             } else {
-              if (is_admin == 1) {
-                this.$router.push("/AdminDash");
-              } else {
-                this.$router.push("/Dashboard");
-              }
+              this.$router.push("/Dashboard");
             }
           }
         })
@@ -174,7 +169,8 @@ export default {
           vm.has_errors = true;
           console.error(error.response);
           alert(error.response.statusText);
-          vm.errors.push();
+          // todo: Export the correct error message from user request response
+          vm.errors.push("درخواست با مشکل مواجه شد.");
         });
     },
     validateForm() {

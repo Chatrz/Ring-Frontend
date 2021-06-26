@@ -191,22 +191,18 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-          localStorage.setItem("jwt", response.data.token);
+          localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
           if (localStorage.getItem("jwt") != null) {
             this.$emit("loggedIn");
-            if (this.$route.params.nextUrl != null) {
-              this.$router.push(this.$route.params.nextUrl);
-            } else {
-              this.$router.push("/Dashborad");
-            }
+            this.$router.push("/Dashborad");
           }
         })
         .catch((error) => {
           vm.has_errors = true;
           console.error(error);
           alert(error.response.statusText);
-          vm.errors.push();
+          // todo: Export the correct error message from user request response
+          vm.errors.push("درخواست با مشکل مواجه شد.");
         });
     },
     validateEmail(email) {
