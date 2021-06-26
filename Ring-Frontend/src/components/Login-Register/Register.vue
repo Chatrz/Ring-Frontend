@@ -184,39 +184,30 @@ export default {
       const vm = this;
       vm.has_errors = false;
       e.preventDefault();
-      if (
-        this.password === this.password_confirmation &&
-        this.password.length > 0
-      ) {
-        this.$http
-          .post("", {
-            name: this.name,
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            localStorage.setItem("user", JSON.stringify(response.data.user));
-            localStorage.setItem("jwt", response.data.token);
-            if (localStorage.getItem("jwt") != null) {
-              this.$emit("loggedIn");
-              if (this.$route.params.nextUrl != null) {
-                this.$router.push(this.$route.params.nextUrl);
-              } else {
-                this.$router.push("/Dashborad");
-              }
+      this.$http
+        .post("", {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        })
+        .then((response) => {
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          localStorage.setItem("jwt", response.data.token);
+          if (localStorage.getItem("jwt") != null) {
+            this.$emit("loggedIn");
+            if (this.$route.params.nextUrl != null) {
+              this.$router.push(this.$route.params.nextUrl);
+            } else {
+              this.$router.push("/Dashborad");
             }
-          })
-          .catch((error) => {
-            vm.has_errors = true;
-            console.error(error);
-            alert(error.response.statusText);
-            vm.errors.push();
-          });
-      } else {
-        this.password = "";
-        this.password_confirmation = "";
-        return alert("Passwords do not match");
-      }
+          }
+        })
+        .catch((error) => {
+          vm.has_errors = true;
+          console.error(error);
+          alert(error.response.statusText);
+          vm.errors.push();
+        });
     },
     validateEmail(email) {
       // This method checks the email validation
