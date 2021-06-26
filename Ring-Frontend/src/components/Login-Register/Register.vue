@@ -181,6 +181,8 @@ export default {
   },
   methods: {
     sendRegisterForm(e) {
+      const vm = this;
+      vm.has_errors = false;
       e.preventDefault();
       if (
         this.password === this.password_confirmation &&
@@ -205,7 +207,10 @@ export default {
             }
           })
           .catch((error) => {
+            vm.has_errors = true;
             console.error(error);
+            alert(error.response.statusText);
+            vm.errors.push();
           });
       } else {
         this.password = "";

@@ -146,7 +146,7 @@ export default {
   methods: {
     sendLogInForm(e) {
       const vm = this;
-      vm.has_errors = true;
+      vm.has_errors = false;
       e.preventDefault();
       if (this.password.length > 0) {
         this.$http
@@ -172,9 +172,10 @@ export default {
             }
           })
           .catch(function (error) {
-            vm.have_error = true;
-            vm.error_msg = "User " + error.response.statusText;
+            vm.has_errors = true;
             console.error(error.response);
+            alert(error.response.statusText);
+            vm.errors.push();
           });
       }
     },
