@@ -150,8 +150,8 @@ export default {
       e.preventDefault();
       if (this.password.length > 0) {
         this.$http
-          .post("http://localhost:3000/login", {
-            email: this.email,
+          .post("", {
+            username: this.username,
             password: this.password,
           })
           .then((response) => {

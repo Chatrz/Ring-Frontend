@@ -180,13 +180,43 @@ export default {
     };
   },
   methods: {
-    sendRegisterForm() {
-      // This method sends the register HTTP request to server
-      console.log(this.name + " " + this.email);
+    sendRegisterForm(e) {
+      e.preventDefault();
+      if (
+        this.password === this.password_confirmation &&
+        this.password.length > 0
+      ) {
+        this.$http
+          .post("", {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+          })
+          .then((response) => {
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            localStorage.setItem("jwt", response.data.token);
+            if (localStorage.getItem("jwt") != null) {
+              this.$emit("loggedIn");
+              if (this.$route.params.nextUrl != null) {
+                this.$router.push(this.$route.params.nextUrl);
+              } else {
+                this.$router.push("/Dashborad");
+              }
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        this.password = "";
+        this.password_confirmation = "";
+        return alert("Passwords do not match");
+      }
     },
     validateEmail(email) {
       // This method checks the email validation
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     },
     validateForm() {
@@ -201,6 +231,7 @@ export default {
       if (this.password != this.password_confirmation)
         this.errors.push("تکرار رمز عبور به اشتباه صورت گرفته است");
       if (this.errors.length > 0) this.has_errors = true;
+      if (!this.has_errors) this.sendRegisterForm();
     },
   },
 };
