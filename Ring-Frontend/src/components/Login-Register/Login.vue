@@ -144,9 +144,39 @@ export default {
     };
   },
   methods: {
-    sendLogInForm() {
-      // This method sends login HTTP request to server
-      console.log(this.username + " " + this.password);
+    sendLogInForm(e) {
+      const vm = this;
+      vm.has_errors = true;
+      e.preventDefault();
+      if (this.password.length > 0) {
+        this.$http
+          .post("http://localhost:3000/login", {
+            email: this.email,
+            password: this.password,
+          })
+          .then((response) => {
+            let is_admin = response.data.user.is_admin;
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            localStorage.setItem("jwt", response.data.token);
+            if (localStorage.getItem("jwt") != null) {
+              this.$emit("loggedIn");
+              if (this.$route.params.nextUrl != null) {
+                this.$router.push(this.$route.params.nextUrl);
+              } else {
+                if (is_admin == 1) {
+                  this.$router.push("/AdminDash");
+                } else {
+                  this.$router.push("/Dashboard");
+                }
+              }
+            }
+          })
+          .catch(function (error) {
+            vm.have_error = true;
+            vm.error_msg = "User " + error.response.statusText;
+            console.error(error.response);
+          });
+      }
     },
     validateForm() {
       // This method checks the inputs validations
@@ -155,6 +185,7 @@ export default {
       if (this.username == "") this.errors.push("لطفا نام کاربری را وارد کنید");
       if (this.password == "") this.errors.push("لطفا رمز خود را وارد کنید");
       if (this.errors.length > 0) this.has_errors = true;
+      if (!this.has_errors) this.sendLogInForm();
     },
   },
 };
