@@ -144,17 +144,60 @@ export default {
     };
   },
   methods: {
-    sendLogInForm() {
-      // This method sends login HTTP request to server
-      console.log(this.username + " " + this.password);
+    sendLogInForm(e) {
+      const vm = this; // Get the current instance of our component
+      vm.has_errors = false; // Setting the errors to false
+      e.preventDefault();
+
+      // Creating a URLSEARCHPARAM instance to set the data
+      let params = new URLSearchParams();
+      params.append("username", this.username);
+      params.append("password", this.password);
+
+      // Send our axios Http request
+      this.$http
+        .post("http://localhost:3030/", params)
+        .then((response) => {
+          // Status log
+          console.log(response.status + " " + response.statusText);
+          // Client side errors
+          if (response.status >= 400 && response.status < 500) {
+            vm.errors.push("مشکلی در ارتباط شما با سرور وجود دارد.");
+            return;
+          }
+          // Server side error
+          if (response.status >= 500 && response.status < 600) {
+            vm.errors.push("درخواست شما توسط سرور رد شد. مجدد تلاش کنید.");
+            return;
+          }
+          // Check the admin status
+          let is_admin = response.data.is_admin; // todo: check if the login user is admin or not
+          // Storing the returned JWT
+          localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
+          if (localStorage.getItem("jwt") != null) {
+            this.$emit("loggedIn");
+            if (is_admin == 1) {
+              this.$router.push("/AdminDash");
+            } else {
+              this.$router.push("/Dashboard");
+            }
+          }
+        })
+        .catch(function (error) {
+          vm.has_errors = true;
+          console.error(error);
+          // todo: Export the correct error message from user request response
+          vm.errors.push("درخواست با مشکل مواجه شد.");
+        });
     },
-    validateForm() {
+    validateForm(e) {
       // This method checks the inputs validations
       this.errors = [];
       this.has_errors = false;
       if (this.username == "") this.errors.push("لطفا نام کاربری را وارد کنید");
       if (this.password == "") this.errors.push("لطفا رمز خود را وارد کنید");
       if (this.errors.length > 0) this.has_errors = true;
+      if (!this.has_errors) this.sendLogInForm(e);
     },
   },
 };
