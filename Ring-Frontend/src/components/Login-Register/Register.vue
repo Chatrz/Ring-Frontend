@@ -181,21 +181,39 @@ export default {
   },
   methods: {
     sendRegisterForm(e) {
-      const vm = this;
-      vm.has_errors = false;
+      const vm = this; // Get the current instance of our component
+      vm.has_errors = false; // Setting the errors to false
+
       e.preventDefault();
+
+      // Creating a URLSEARCHPARAM instance to set the data
       let params = new URLSearchParams();
-      params.append('username', this.name);
-      params.append('email', this.email);
-      params.append('password', this.password);
+      params.append("username", this.name);
+      params.append("email", this.email);
+      params.append("password", this.password);
+
+      // Send our axios Http request
       this.$http
-        .post("http://localhost:3030/", params, options)
+        .post("http://localhost:3030/", params)
         .then((response) => {
-          if (response.data.message === "success" )  this.$router.push( '/Dashboard' )
-          localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
-          if (localStorage.getItem("jwt") != null) {
-            this.$emit("loggedIn");
-            this.$router.push("/Dashborad");
+          // Status log
+          console.log(response.status + " " + response.statusText);
+          // Client side errors
+          if (response.status >= 400 && response.status < 500) {
+            vm.errors.push("مشکلی در ارتباط شما با سرور وجود دارد.");
+            return;
+          }
+          // Server side error
+          if (response.status >= 500 && response.status < 600) {
+            vm.errors.push("درخواست شما توسط سرور رد شد. مجدد تلاش کنید.");
+            return;
+          }
+          if (response.status === 200) {
+            localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
+            if (localStorage.getItem("jwt") != null) {
+              this.$emit("loggedIn");
+              this.$router.push("/Dashboard");
+            }
           }
         })
         .catch((error) => {
@@ -208,11 +226,10 @@ export default {
     },
     validateEmail(email) {
       // This method checks the email validation
-      const re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     },
-    validateForm() {
+    validateForm(e) {
       // This method checks the input data validations
       this.errors = [];
       this.has_errors = false;
@@ -224,7 +241,7 @@ export default {
       if (this.password != this.password_confirmation)
         this.errors.push("تکرار رمز عبور به اشتباه صورت گرفته است");
       if (this.errors.length > 0) this.has_errors = true;
-      if (!this.has_errors) this.sendRegisterForm();
+      if (!this.has_errors) this.sendRegisterForm(e);
     },
   },
 };
