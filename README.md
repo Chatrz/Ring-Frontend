@@ -11,9 +11,6 @@ AUT IE, Ring project.
         Game/Market/PurchaseSection change the line format data to cards format
     </li>
     <li>
-        Set the Login/Register API methods 
-    </li>
-    <li>
         Set the Admin API routing method
     </li>
     <li>
@@ -40,5 +37,7 @@ AUT IE, Ring project.
 
 ### Done
 <ul>
-   
+   <li>
+        Set the Login/Register API methods 
+    </li>
 </ul>
