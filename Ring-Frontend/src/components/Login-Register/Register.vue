@@ -189,8 +189,9 @@ export default {
       params.append('email', this.email);
       params.append('password', this.password);
       this.$http
-        .post("http://localhost:3030/", params)
+        .post("http://localhost:3030/", params, options)
         .then((response) => {
+          if (response.data.message === "success" )  this.$router.push( '/Dashboard' )
           localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
           if (localStorage.getItem("jwt") != null) {
             this.$emit("loggedIn");

@@ -145,20 +145,9 @@ export default {
   },
   methods: {
     sendLogInForm(e) {
-      const vm = this;
+      const vm = this; 
       vm.has_errors = false;
       e.preventDefault();
-      // const options = {
-      //   data: {
-      //     username: this.username,
-      //     password: this.password,
-      //   },
-      //   headers: {
-      //     "Content-Type": "application/json; charset=UTF-8",
-      //     'Accept': "Token",
-      //     "Access-Control-Allow-Origin": "*",
-      //   },
-      // };
       let params = new URLSearchParams();
       params.append('username', this.username);
       params.append('password', this.password);
