@@ -148,12 +148,24 @@ export default {
       const vm = this;
       vm.has_errors = false;
       e.preventDefault();
+      // const options = {
+      //   data: {
+      //     username: this.username,
+      //     password: this.password,
+      //   },
+      //   headers: {
+      //     "Content-Type": "application/json; charset=UTF-8",
+      //     'Accept': "Token",
+      //     "Access-Control-Allow-Origin": "*",
+      //   },
+      // };
+      let params = new URLSearchParams();
+      params.append('username', this.username);
+      params.append('password', this.password);
       this.$http
-        .post("", {
-          username: this.username,
-          password: this.password,
-        })
+        .post("http://localhost:3030/", params)
         .then((response) => {
+          if (response.data.message === "success" )  this.$router.push( '/Dashboard' )
           let is_admin = response.data.is_admin; // todo: check if the login user is admin or not
           localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
           if (localStorage.getItem("jwt") != null) {
@@ -167,20 +179,19 @@ export default {
         })
         .catch(function (error) {
           vm.has_errors = true;
-          console.error(error.response);
-          alert(error.response.statusText);
+          console.log(error);
           // todo: Export the correct error message from user request response
           vm.errors.push("درخواست با مشکل مواجه شد.");
         });
     },
-    validateForm() {
+    validateForm(e) {
       // This method checks the inputs validations
       this.errors = [];
       this.has_errors = false;
       if (this.username == "") this.errors.push("لطفا نام کاربری را وارد کنید");
       if (this.password == "") this.errors.push("لطفا رمز خود را وارد کنید");
       if (this.errors.length > 0) this.has_errors = true;
-      if (!this.has_errors) this.sendLogInForm();
+      if (!this.has_errors) this.sendLogInForm(e);
     },
   },
 };

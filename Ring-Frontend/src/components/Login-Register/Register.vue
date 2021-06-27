@@ -184,12 +184,12 @@ export default {
       const vm = this;
       vm.has_errors = false;
       e.preventDefault();
+      let params = new URLSearchParams();
+      params.append('username', this.name);
+      params.append('email', this.email);
+      params.append('password', this.password);
       this.$http
-        .post("", {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-        })
+        .post("http://localhost:3030/", params)
         .then((response) => {
           localStorage.setItem("jwt", response.data.token); // todo: get the JWT from response
           if (localStorage.getItem("jwt") != null) {
