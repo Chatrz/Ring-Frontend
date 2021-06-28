@@ -183,7 +183,6 @@ export default {
     sendRegisterForm(e) {
       const vm = this; // Get the current instance of our component
       vm.has_errors = false; // Setting the errors to false
-
       e.preventDefault();
 
       // Creating a URLSEARCHPARAM instance to set the data
@@ -219,7 +218,6 @@ export default {
         .catch((error) => {
           vm.has_errors = true;
           console.error(error);
-          alert(error.response.statusText);
           // todo: Export the correct error message from user request response
           vm.errors.push("درخواست با مشکل مواجه شد.");
         });
