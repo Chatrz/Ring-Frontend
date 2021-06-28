@@ -15,16 +15,21 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
-    <h2 class="mt-5 mb-3" v-if="selected == null">{{ "زمین کارخانه خود را انتخاب کنید :" }}</h2>
+    <h2 class="mt-5 mb-3" v-if="selected == null">
+      {{ "زمین کارخانه خود را انتخاب کنید :" }}
+    </h2>
     <h2 class="mt-5 mb-3" v-else>{{ "زمین شما انتخاب شده است." }}</h2>
     <div class="w-50 m-auto text-center mt-3 mb-5 p-4 warning-msg">
       <span class="d-block mb-3">
-        {{ "مشخصات هر زمین روی آن نوشته شده است. آن ها را با دقت بخوانید و در نظر بگیرید که هر زمین متناسب با ویژگی های خود می تواند در سود حاصل از فروش کالاهای شما تغییرات ایجاد کند." }}
+        {{
+          "مشخصات هر زمین روی آن نوشته شده است. آن ها را با دقت بخوانید و در نظر بگیرید که هر زمین متناسب با ویژگی های خود می تواند در سود حاصل از فروش کالاهای شما تغییرات ایجاد کند."
+        }}
       </span>
       <span class="d-block alert-msg">
-        {{ "در انتخاب زمین خود بسیار دقت کنید زیرا در صورت انتخاب آن امکان تغییر آن وجود نخواهد داشت و این زمین تا پایان مسابقه برای شما خواهد بود." }}
-      </span
-      >
+        {{
+          "در انتخاب زمین خود بسیار دقت کنید زیرا در صورت انتخاب آن امکان تغییر آن وجود نخواهد داشت و این زمین تا پایان مسابقه برای شما خواهد بود."
+        }}
+      </span>
     </div>
     <b-carousel
       id="landSlider"
@@ -66,7 +71,12 @@
       ></b-carousel-slide>
     </b-carousel>
 
-    <button class="btn subbtn" type="button" @click="selectThisLand" v-if="selected == null">
+    <button
+      class="btn subbtn"
+      type="button"
+      @click="selectThisLand"
+      v-if="selected == null"
+    >
       {{ "همین زمین را انتخاب کن" }}
     </button>
   </div>
@@ -78,7 +88,7 @@ export default {
    * The land component allows the temas to choose their land
    * of factory.
    * Using a slider to show them the lands.
-   * 
+   *
    */
   name: "Land",
   data() {
@@ -88,7 +98,8 @@ export default {
     };
   },
   methods: {
-    selectThisLand() { // This method sends an HTTP request for selecting a land
+    selectThisLand() {
+      // This method sends an HTTP request for selecting a land
       this.selected = this.slide;
       alert("Land " + this.selected + " choosed.");
     },

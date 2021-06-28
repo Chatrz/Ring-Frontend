@@ -73,6 +73,9 @@
         <input v-if="type.status" :id="type.key" type="checkbox" v-model="choosed" :value="type.key" />
       </div>
     </div>
+    <button class="d-block m-auto mt-4 btn btn-success" @click="updateChanges">
+      {{ "اعمال تغییرات جدید" }}
+    </button>
   </div>
 </template>
 
@@ -97,6 +100,12 @@ export default {
       choosed: [],
     };
   },
+  methods: {
+    updateChanges() {
+      console.log(this.choosed);
+      this.choosed = [];
+    }
+  }
 };
 </script>
 
