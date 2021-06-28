@@ -30,7 +30,7 @@
           </b-card-text>
         </b-tab>
         <b-tab
-          title="تابع رباط مسابقه"
+          title="تابع ربات مسابقه"
           :title-item-class="linkClass(3)"
           :title-link-class="linkClass(3)"
         >

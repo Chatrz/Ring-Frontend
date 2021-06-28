@@ -15,7 +15,17 @@
         text-overflow: ellipsis;
       "
     ></b-icon>
-    <h2 class="mt-5 mb-5">{{ "زمین کارخانه خود را انتخاب کنید :" }}</h2>
+    <h2 class="mt-5 mb-3" v-if="selected == null">{{ "زمین کارخانه خود را انتخاب کنید :" }}</h2>
+    <h2 class="mt-5 mb-3" v-else>{{ "زمین شما انتخاب شده است." }}</h2>
+    <div class="w-50 m-auto text-center mt-3 mb-5 p-4 warning-msg">
+      <span class="d-block mb-3">
+        {{ "مشخصات هر زمین روی آن نوشته شده است. آن ها را با دقت بخوانید و در نظر بگیرید که هر زمین متناسب با ویژگی های خود می تواند در سود حاصل از فروش کالاهای شما تغییرات ایجاد کند." }}
+      </span>
+      <span class="d-block alert-msg">
+        {{ "در انتخاب زمین خود بسیار دقت کنید زیرا در صورت انتخاب آن امکان تغییر آن وجود نخواهد داشت و این زمین تا پایان مسابقه برای شما خواهد بود." }}
+      </span
+      >
+    </div>
     <b-carousel
       id="landSlider"
       v-model="slide"
@@ -30,40 +40,33 @@
       style="text-shadow: 1px 1px 2px #333"
     >
       <b-carousel-slide
-        caption="First slide"
+        caption="تهران"
         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
+        img-src="../../assets/Logo/Logo.svg"
       ></b-carousel-slide>
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
       <b-carousel-slide
-        img-src="https://picsum.photos/1024/480/?image=58"
+        caption="اصفهان"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="../../assets/Logo/Logo.svg"
       ></b-carousel-slide>
-
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          />
-        </template>
-      </b-carousel-slide>
-
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eros felis, tincidunt a tincidunt eget, convallis vel est. Ut
-          pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
+      <b-carousel-slide
+        caption="کیش"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="../../assets/Logo/Logo.svg"
+      ></b-carousel-slide>
+      <b-carousel-slide
+        caption="ساری"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="../../assets/Logo/Logo.svg"
+      ></b-carousel-slide>
+      <b-carousel-slide
+        caption="زاهدان"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="../../assets/Logo/Logo.svg"
+      ></b-carousel-slide>
     </b-carousel>
 
-    <button class="btn subbtn" type="button" @click="selectThisLand">
+    <button class="btn subbtn" type="button" @click="selectThisLand" v-if="selected == null">
       {{ "همین زمین را انتخاب کن" }}
     </button>
   </div>
@@ -104,5 +107,19 @@ export default {
 .subbtn:hover {
   background: #ffffff;
   color: #f07c00ff;
+}
+
+.alert-msg {
+  background: #dc3545;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 25px;
+}
+
+.warning-msg {
+  background: #1a9953;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 25px;
 }
 </style>
